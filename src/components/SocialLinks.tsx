@@ -12,13 +12,13 @@ const SocialLinks: React.FC = () => {
     },
     {
       icon: Instagram,
-      label: 'DJ Phil Kami',
+      label: 'DJ philkami',
       url: '#', // Replace with actual Instagram URL
       color: 'from-purple-500 to-blue-500',
     },
     {
       icon: Facebook,
-      label: 'InScape Movement',
+      label: 'Inscape Movement',
       url: '#', // Replace with actual Facebook URL
       color: 'from-blue-500 to-blue-600',
     },
@@ -30,7 +30,7 @@ const SocialLinks: React.FC = () => {
     },
     {
       icon: MessageCircle,
-      label: 'WhatsApp Booking',
+      label: 'WhatsApp Group',
       url: '#', // Replace with actual WhatsApp URL
       color: 'from-green-500 to-green-600',
     },
