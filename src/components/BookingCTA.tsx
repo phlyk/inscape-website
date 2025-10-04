@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 import React from 'react';
+import SpotlightCard from './SpotlightCard';
 
 interface BookingCTAProps {
   onBookNow: () => void;
@@ -16,15 +17,15 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 lg:p-12">
+          <SpotlightCard className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 lg:p-12">
             <motion.div
               className="mb-6"
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <Calendar size={48} className="text-purple-300 mx-auto mb-4" />
             </motion.div>
@@ -34,7 +35,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               Ready to Begin Your Journey?
             </motion.h2>
@@ -44,7 +45,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               Join us monthly for an authentic movement experience. 
               <br className="hidden lg:block" />
@@ -56,7 +57,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <motion.button
                 onClick={onBookNow}
@@ -77,7 +78,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
                 </p>
               </div>
             </motion.div>
-          </div>
+          </SpotlightCard>
         </motion.div>
       </div>
     </section>

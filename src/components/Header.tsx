@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      setIsScrolled(scrollTop > 350);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -42,19 +42,19 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <motion.div
+            <motion.div
             className="flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
-          >
+            >
             <img 
               src={inscapeLogo} 
               alt="InScape Movement" 
               className={`transition-all duration-500 ${
-                isScrolled ? 'h-8 lg:h-10' : 'h-10 lg:h-12'
-              }`}
+              isScrolled ? 'opacity-100' : 'opacity-0'
+              } h-8 lg:h-10`}
             />
-          </motion.div>
+            </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

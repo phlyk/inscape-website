@@ -1,8 +1,49 @@
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import heroBg from '../assets/hero-bg.png';
 import inscapeLogo from '../assets/INSCAPE.png';
+
+// Separate component for cursor-following particles to avoid hooks in callback
+const CursorFollowingParticle: React.FC<{
+  cursorX: any;
+  cursorY: any;
+  index: number;
+}> = ({ cursorX, cursorY, index }) => {
+  const offsetX = (index % 2 === 0 ? 1 : -1) * (10 + index * 5);
+  const offsetY = index * 8;
+  
+  const x = useTransform(cursorX, (x: number) => x + offsetX);
+  const y = useTransform(cursorY, (y: number) => y + offsetY);
+  
+  return (
+    <motion.div
+      className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
+      style={{
+        x,
+        y,
+        opacity: 0.7 - index * 0.06,
+        scale: 1 - index * 0.08,
+      }}
+      animate={{
+        scale: [1 - index * 0.08, (1 - index * 0.08) * 1.3, 1 - index * 0.08],
+        rotate: [0, 180, 360],
+      }}
+      transition={{
+        scale: {
+          duration: 2 + Math.random() * 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+        rotate: {
+          duration: 8 + index * 2,
+          repeat: Infinity,
+          ease: "linear",
+        },
+      }}
+    />
+  );
+};
 
 interface HeroProps {
   onBookNow: () => void;
@@ -87,22 +128,10 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
           <motion.img 
             src={inscapeLogo} 
             alt="InScape Movement" 
-            className="h-24 md:h-32 lg:h-40 w-auto filter drop-shadow-2xl"
+            className="h-32 md:h-48 lg:h-50 w-auto filter drop-shadow-2xl"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           />
-        </motion.div>
-        
-        {/* Movement Subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-6"
-        >
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-light text-white/90 tracking-wider">
-            Movement
-          </h1>
         </motion.div>
 
         {/* Subtitle */}
@@ -165,26 +194,9 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
 
       {/* Enhanced Interactive Particles Effect */}
       <div className="absolute inset-0 z-5 pointer-events-none">
-        {/* Cursor-following particles (desktop only) */}
-        {!isMobile && Array.from({ length: 8 }).map((_, i) => {
-          const delay = i * 0.1;
-          const distance = 20 + i * 15;
-          return (
-            <motion.div
-              key={`cursor-${i}`}
-              className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
-              style={{
-                x: useTransform(cursorX, (x) => x - distance * Math.cos(delay)),
-                y: useTransform(cursorY, (y) => y - distance * Math.sin(delay)),
-                opacity: 0.6 - i * 0.05,
-                scale: 1 - i * 0.1,
-              }}
-            />
-          );
-        })}
         
         {/* Ambient floating particles */}
-        {Array.from({ length: 30 }).map((_, i) => {
+        {Array.from({ length: 100 }).map((_, i) => {
           const size = Math.random() * 3 + 1;
           return (
             <motion.div
@@ -199,8 +211,8 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
               animate={{
                 y: [-30, 30, -30],
                 x: [-10, 10, -10],
-                opacity: [0.1, 0.6, 0.1],
-                scale: [0.5, 1.2, 0.5],
+                opacity: [0.2, 0.8, 0.15],
+                scale: [0.5, 1.5, 0.5],
               }}
               transition={{
                 duration: 6 + Math.random() * 4,
@@ -213,20 +225,20 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         })}
         
         {/* Glowing orbs */}
-        {Array.from({ length: 5 }).map((_, i) => (
+        {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={`orb-${i}`}
             className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-sm"
             style={{
-              left: `${20 + Math.random() * 60}%`,
-              top: `${20 + Math.random() * 60}%`,
+              left: `${15 + Math.random() * 70}%`,
+              top: `${15 + Math.random() * 70}%`,
             }}
             animate={{
-              scale: [1, 2, 1],
+              scale: [1, 20, 1],
               opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: 6 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
             }}

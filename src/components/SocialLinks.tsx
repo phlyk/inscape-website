@@ -7,19 +7,19 @@ const SocialLinks: React.FC = () => {
     {
       icon: Instagram,
       label: 'InScape Events',
-      url: '#', // Replace with actual Instagram URL
+      url: 'https://www.instagram.com/inscapemovement/',
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Instagram,
       label: 'DJ philkami',
-      url: '#', // Replace with actual Instagram URL
+      url: 'https://www.instagram.com/philkamisound/',
       color: 'from-purple-500 to-blue-500',
     },
     {
       icon: Facebook,
       label: 'Inscape Movement',
-      url: '#', // Replace with actual Facebook URL
+      url: 'https://www.facebook.com/profile.php?id=61580909900812',
       color: 'from-blue-500 to-blue-600',
     },
     {
@@ -31,7 +31,7 @@ const SocialLinks: React.FC = () => {
     {
       icon: MessageCircle,
       label: 'WhatsApp Group',
-      url: '#', // Replace with actual WhatsApp URL
+      url: 'https://chat.whatsapp.com/CRCgrDb9AOAIONK4Wv5QIO',
       color: 'from-green-500 to-green-600',
     },
   ];

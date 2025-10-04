@@ -1,6 +1,7 @@
-import { motion, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Clock, Euro, Heart, MapPin, Music, Shield, Users } from 'lucide-react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import SpotlightCard from './SpotlightCard';
 
 interface SectionProps {
   id: string;
@@ -10,16 +11,21 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ id, children, className = '' }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [100, 0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.3]);
 
   return (
     <motion.section
       ref={ref}
       id={id}
       className={`py-20 ${className}`}
-      initial={{ opacity: 0, y: 100 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ y, opacity }}
     >
       {children}
     </motion.section>
@@ -34,25 +40,58 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, delay = 0 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (ref.current && isHovered) {
+        const rect = ref.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        ref.current.style.setProperty('--spotlight-x', `${x}%`);
+        ref.current.style.setProperty('--spotlight-y', `${y}%`);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [isHovered]);
 
   return (
     <motion.div
       ref={ref}
-      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group"
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
-      transition={{ duration: 0.6, delay }}
+      className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group overflow-hidden"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ 
+        duration: 0.5, 
+        type: "spring",
+        stiffness: 100,
+        damping: 15
+      }}
       whileHover={{ y: -5, scale: 1.02 }}
+      viewport={{ once: false, margin: "-50px" }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="mb-4">
-        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-          <Icon size={24} className="text-white" />
+      {/* Enhanced Spotlight effect */}
+      <div 
+        className={`absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
+        style={{
+          background: `radial-gradient(400px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255,255,255,0.25), transparent 60%)`
+        }}
+      />
+      {/* Card content */}
+      <div className="relative z-10">
+        <div className="mb-4">
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <Icon size={24} className="text-white" />
+          </div>
         </div>
+        <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
+        <p className="text-white/80 leading-relaxed">{description}</p>
       </div>
-      <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-      <p className="text-white/80 leading-relaxed">{description}</p>
     </motion.div>
   );
 };
@@ -69,16 +108,16 @@ const MainContent: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
-              What is InScape Movement?
+              What is Inscape Movement?
             </motion.h2>
             <motion.div
               className="text-xl lg:text-2xl text-white/90 leading-relaxed space-y-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              viewport={{ once: false }}
             >
               <p>
                 It's simple: you step into the hall, the music rises, and everything else falls away.
@@ -105,7 +144,7 @@ const MainContent: React.FC = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             Key Features
           </motion.h2>
@@ -160,7 +199,7 @@ const MainContent: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               Music Journey
             </motion.h2>
@@ -171,31 +210,31 @@ const MainContent: React.FC = () => {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <h3 className="text-2xl font-semibold mb-4 text-purple-300">Wave-like Journey</h3>
                   <p className="text-white/90 leading-relaxed">
                     Experience a carefully crafted DJ set that navigates through different phases: 
                     <span className="text-purple-300 font-medium"> Rise, Peak, Transition, Challenge, Land</span>
                   </p>
-                </div>
+                </SpotlightCard>
                 
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <h3 className="text-2xl font-semibold mb-4 text-blue-300">Diverse & Surprising</h3>
                   <p className="text-white/90 leading-relaxed">
                     Strong emphasis on diversity and surprise: ambient, jazz, downtempo, world, electronic, 
                     techno, bass music, instrumental hip-hop, even occasional rock — and many more genres.
                   </p>
-                </div>
+                </SpotlightCard>
                 
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <h3 className="text-2xl font-semibold mb-4 text-pink-300">Live & Adaptive</h3>
                   <p className="text-white/90 leading-relaxed">
                     Live flowing DJ set that adapts to the energy in the room. 
                     Expect most tracks to be unfamiliar — discovery is intentional.
                   </p>
-                </div>
+                </SpotlightCard>
               </motion.div>
               
               <motion.div
@@ -203,9 +242,9 @@ const MainContent: React.FC = () => {
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
-                <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
+                <SpotlightCard className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
                   <Music size={48} className="text-purple-400 mb-4 mx-auto lg:mx-0" />
                   <h3 className="text-2xl font-bold mb-4">Professional Sound System</h3>
                   <p className="text-white/90 mb-6 leading-relaxed">
@@ -223,7 +262,7 @@ const MainContent: React.FC = () => {
                     <Music size={20} className="mr-2" />
                     Listen on SoundCloud
                   </motion.a>
-                </div>
+                </SpotlightCard>
               </motion.div>
             </div>
           </div>
@@ -244,26 +283,26 @@ const MainContent: React.FC = () => {
           </motion.h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <motion.div
+            <SpotlightCard
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
               <MapPin size={32} className="text-blue-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Location</h3>
               <p className="text-white/90">26 Rue Marca, Pau</p>
               <p className="text-sm text-white/70 mt-2">~3 mins walk from Place Verdun Sud</p>
-            </motion.div>
+            </SpotlightCard>
             
-            <motion.div
+            <SpotlightCard
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
               <Clock size={32} className="text-purple-400 mx-auto mb-4" />
@@ -271,49 +310,49 @@ const MainContent: React.FC = () => {
               <p className="text-white/90">Doors: 19:45</p>
               <p className="text-white/90">Movement: 20:00 → 22:00</p>
               <p className="text-sm text-white/70 mt-2">Please arrive before 20:00</p>
-            </motion.div>
+            </SpotlightCard>
             
-            <motion.div
+            <SpotlightCard
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
               <Euro size={32} className="text-green-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Contribution</h3>
               <p className="text-white/90">€25 cash on the door</p>
               <p className="text-sm text-white/70 mt-2">Concessions for students/job-seekers available</p>
-            </motion.div>
+            </SpotlightCard>
             
-            <motion.div
+            <SpotlightCard
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center md:col-span-2 lg:col-span-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
               <Users size={32} className="text-pink-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Age & Parking</h3>
               <p className="text-white/90">Adults only 18+</p>
               <p className="text-sm text-white/70 mt-2">Free parking Saturday evenings</p>
-            </motion.div>
+            </SpotlightCard>
             
-            <motion.div
+            <SpotlightCard
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center md:col-span-2"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
               <Heart size={32} className="text-red-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">What to Bring</h3>
               <p className="text-white/90">Comfortable clothes & water bottle</p>
               <p className="text-sm text-white/70 mt-2">Toilet & running water available on site</p>
-            </motion.div>
+            </SpotlightCard>
           </div>
         </div>
       </Section>
