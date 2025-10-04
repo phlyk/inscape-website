@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/inscape-website/static/css/main.ca994f02.css",
+    "main.js": "/inscape-website/static/js/main.7b733832.js",
+    "static/js/453.94616e72.chunk.js": "/inscape-website/static/js/453.94616e72.chunk.js",
+    "static/media/hero-bg.png": "/inscape-website/static/media/hero-bg.21c23cecd28fa92444da.png",
+    "static/media/phlippyphlaps_Please_turn_this_photo_into_a_professional_DJ_hea_5bbd032d-3713-4327-9bba-e0bd9654773d.png": "/inscape-website/static/media/phlippyphlaps_Please_turn_this_photo_into_a_professional_DJ_hea_5bbd032d-3713-4327-9bba-e0bd9654773d.a1fdec3dd2482c0bd6fe.png",
+    "static/media/INSCAPE.png": "/inscape-website/static/media/INSCAPE.c57b9ebfff497b457502.png",
+    "index.html": "/inscape-website/index.html",
+    "main.ca994f02.css.map": "/inscape-website/static/css/main.ca994f02.css.map",
+    "main.7b733832.js.map": "/inscape-website/static/js/main.7b733832.js.map",
+    "453.94616e72.chunk.js.map": "/inscape-website/static/js/453.94616e72.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca994f02.css",
+    "static/js/main.7b733832.js"
+  ]
+}
