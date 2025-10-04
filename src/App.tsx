@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import './App.css';
 import BookingCTA from './components/BookingCTA';
+import DJIntroduction from './components/DJIntroduction';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MainContent from './components/MainContent';
@@ -39,6 +40,7 @@ function App() {
       <Header onNavClick={scrollToSection} />
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />
       <MainContent />
+      <DJIntroduction />
       <BookingCTA onBookNow={handleBookNow} />
       <SocialLinks />
       <MobileSocialLinks />
