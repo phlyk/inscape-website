@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import heroBg from '../assets/hero-bg.png';
 import inscapeLogo from '../assets/INSCAPE.png';
 
@@ -51,6 +52,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
+  const { t } = useTranslation();
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   
@@ -141,9 +143,9 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 font-light leading-relaxed max-w-4xl mx-auto"
         >
-          Step into the hall, let the music rise, and let everything else fall away.
+          {t('hero_subtitle')}
           <span className="block mt-2 text-lg md:text-xl text-white/70">
-            Two hours of authentic movement. No judgment. No distractions. Just presence.
+            {t('hero_description')}
           </span>
         </motion.p>
 
@@ -160,7 +162,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            Book Your Journey
+            {t('book_now')}
           </motion.button>
           
           <motion.button
@@ -169,7 +171,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            Learn More
+            {t('join_us')}
           </motion.button>
         </motion.div>
 

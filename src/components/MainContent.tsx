@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Clock, Euro, Heart, MapPin, Music, Shield, Users } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
 
 interface SectionProps {
@@ -97,6 +98,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
 };
 
 const MainContent: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-black text-white">
       {/* What is InScape Movement */}
@@ -110,7 +113,7 @@ const MainContent: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              What is Inscape Movement?
+              {t('what_is_inscape')}
             </motion.h2>
             <motion.div
               className="text-xl lg:text-2xl text-white/90 leading-relaxed space-y-6"
@@ -119,18 +122,11 @@ const MainContent: React.FC = () => {
               transition={{ duration: 1.2, delay: 0.2 }}
               viewport={{ once: false }}
             >
-              <p>
-                It's simple: you step into the hall, the music rises, and everything else falls away.
-              </p>
-              <p>
-                Two hours of moving however you want with no judgment, no distractions.
-              </p>
-              <p>
-                People, both alone and together, are guided by the music, discovering what the moment brings.
-              </p>
-              <p className="text-lg text-purple-300 font-medium">
-                No talking, no phones, no substances — only presence, play, and connection.
-              </p>
+              {t('what_is_description').split('\n').map((paragraph, index) => (
+                <p key={index} className={index === 3 ? "text-lg text-purple-300 font-medium" : ""}>
+                  {paragraph}
+                </p>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -146,44 +142,44 @@ const MainContent: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: false }}
           >
-            Key Features
+            {t('key_features')}
           </motion.h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
               icon={Shield}
-              title="Safe Space"
-              description="A non-judgmental environment to connect with your body, the music, and express authentically. Non-verbal connection with others is welcomed."
+              title={t('safe_space')}
+              description={t('safe_space_desc')}
               delay={0}
             />
             <FeatureCard
               icon={Music}
-              title="Living Soundscape"
-              description="Experience a diverse, ever-evolving musical journey that guides your movement through different phases and emotions."
+              title={t('diverse_soundscape')}
+              description={t('diverse_soundscape_desc')}
               delay={0.1}
             />
             <FeatureCard
               icon={Heart}
-              title="Gentle Guidance"
-              description="Receive gentle invitations to awareness of body, space, others, and silence, along with different forms of movement exploration."
+              title={t('gentle_guidance')}
+              description={t('gentle_guidance_desc')}
               delay={0.2}
             />
             <FeatureCard
               icon={Users}
-              title="Bilingual Experience"
-              description="Guided in both French & English, adapting to what's needed in the moment for our diverse community."
+              title={t('bilingual')}
+              description={t('bilingual_desc')}
               delay={0.3}
             />
             <FeatureCard
               icon={Heart}
-              title="Barefoot Connection"
-              description="Dance without shoes (barefoot or dance socks) to deepen your connection with the ground and your body."
+              title={t('barefoot')}
+              description={t('barefoot_desc')}
               delay={0.4}
             />
             <FeatureCard
               icon={Users}
-              title="Community Circle"
-              description="After dancing, join our closing circle with time for sharing and authentic community connection."
+              title={t('closing_circle')}
+              description={t('closing_circle_desc')}
               delay={0.5}
             />
           </div>
@@ -201,7 +197,7 @@ const MainContent: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              Music Journey
+              {t('musical_journey')}
             </motion.h2>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -213,26 +209,23 @@ const MainContent: React.FC = () => {
                 viewport={{ once: false }}
               >
                 <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <h3 className="text-2xl font-semibold mb-4 text-purple-300">Wave-like Journey</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-purple-300">{t('wave_structure')}</h3>
                   <p className="text-white/90 leading-relaxed">
-                    Experience a carefully crafted DJ set that navigates through different phases: 
-                    <span className="text-purple-300 font-medium"> Rise, Peak, Transition, Challenge, Land</span>
+                    {t('wave_structure_desc')}
                   </p>
                 </SpotlightCard>
                 
                 <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <h3 className="text-2xl font-semibold mb-4 text-blue-300">Diverse & Surprising</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-blue-300">{t('diversity')}</h3>
                   <p className="text-white/90 leading-relaxed">
-                    Strong emphasis on diversity and surprise: ambient, jazz, downtempo, world, electronic, 
-                    techno, bass music, instrumental hip-hop, even occasional rock — and many more genres.
+                    {t('diversity_desc')}
                   </p>
                 </SpotlightCard>
                 
                 <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <h3 className="text-2xl font-semibold mb-4 text-pink-300">Live & Adaptive</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-pink-300">{t('responsive')}</h3>
                   <p className="text-white/90 leading-relaxed">
-                    Live flowing DJ set that adapts to the energy in the room. 
-                    Expect most tracks to be unfamiliar — discovery is intentional.
+                    {t('responsive_desc')} {t('discovery_desc')}
                   </p>
                 </SpotlightCard>
               </motion.div>
@@ -246,10 +239,9 @@ const MainContent: React.FC = () => {
               >
                 <SpotlightCard className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
                   <Music size={48} className="text-purple-400 mb-4 mx-auto lg:mx-0" />
-                  <h3 className="text-2xl font-bold mb-4">Professional Sound System</h3>
+                  <h3 className="text-2xl font-bold mb-4">{t('sound_system')}</h3>
                   <p className="text-white/90 mb-6 leading-relaxed">
-                    Immerse yourself in high-quality professional sound that brings every beat, 
-                    every melody, every silence to life.
+                    {t('sound_system_desc')}
                   </p>
                   <motion.a
                     href="https://soundcloud.com/philkami"
@@ -260,7 +252,7 @@ const MainContent: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Music size={20} className="mr-2" />
-                    Listen on SoundCloud
+                    {t('soundcloud')}
                   </motion.a>
                 </SpotlightCard>
               </motion.div>
@@ -279,7 +271,7 @@ const MainContent: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Practical Details
+            {t('practical_details')}
           </motion.h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -292,9 +284,9 @@ const MainContent: React.FC = () => {
               whileHover={{ y: -5 }}
             >
               <MapPin size={32} className="text-blue-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Location</h3>
-              <p className="text-white/90">26 Rue Marca, Pau</p>
-              <p className="text-sm text-white/70 mt-2">~3 mins walk from Place Verdun Sud</p>
+              <h3 className="text-xl font-semibold mb-2">{t('location')}</h3>
+              <p className="text-white/90">{t('location_desc')}</p>
+              <p className="text-sm text-white/70 mt-2">{t('parking_desc')}</p>
             </SpotlightCard>
             
             <SpotlightCard
@@ -306,10 +298,10 @@ const MainContent: React.FC = () => {
               whileHover={{ y: -5 }}
             >
               <Clock size={32} className="text-purple-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Schedule</h3>
-              <p className="text-white/90">Doors: 19:45</p>
-              <p className="text-white/90">Movement: 20:00 → 22:00</p>
-              <p className="text-sm text-white/70 mt-2">Please arrive before 20:00</p>
+              <h3 className="text-xl font-semibold mb-2">{t('arrival')}</h3>
+              <p className="text-white/90">{t('arrival_desc')}</p>
+              <p className="text-white/90">{t('movement_time_desc')}</p>
+              <p className="text-sm text-white/70 mt-2">{t('age_desc')}</p>
             </SpotlightCard>
             
             <SpotlightCard
@@ -321,9 +313,9 @@ const MainContent: React.FC = () => {
               whileHover={{ y: -5 }}
             >
               <Euro size={32} className="text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Contribution</h3>
-              <p className="text-white/90">€25 cash on the door</p>
-              <p className="text-sm text-white/70 mt-2">Concessions for students/job-seekers available</p>
+              <h3 className="text-xl font-semibold mb-2">{t('contribution')}</h3>
+              <p className="text-white/90">{t('contribution_desc')}</p>
+              <p className="text-sm text-white/70 mt-2"></p>
             </SpotlightCard>
             
             <SpotlightCard
@@ -335,9 +327,9 @@ const MainContent: React.FC = () => {
               whileHover={{ y: -5 }}
             >
               <Users size={32} className="text-pink-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Age & Parking</h3>
-              <p className="text-white/90">Adults only 18+</p>
-              <p className="text-sm text-white/70 mt-2">Free parking Saturday evenings</p>
+              <h3 className="text-xl font-semibold mb-2">{t('parking')}</h3>
+              <p className="text-white/90">{t('parking_desc')}</p>
+              <p className="text-sm text-white/70 mt-2"></p>
             </SpotlightCard>
             
             <SpotlightCard
@@ -349,9 +341,9 @@ const MainContent: React.FC = () => {
               whileHover={{ y: -5 }}
             >
               <Heart size={32} className="text-red-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">What to Bring</h3>
-              <p className="text-white/90">Comfortable clothes & water bottle</p>
-              <p className="text-sm text-white/70 mt-2">Toilet & running water available on site</p>
+              <h3 className="text-xl font-semibold mb-2">{t('bring')}</h3>
+              <p className="text-white/90">{t('bring_desc')}</p>
+              <p className="text-sm text-white/70 mt-2">{t('facilities_desc')}</p>
             </SpotlightCard>
           </div>
         </div>

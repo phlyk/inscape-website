@@ -4,6 +4,7 @@ import BookingCTA from './components/BookingCTA';
 import DJIntroduction from './components/DJIntroduction';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import LanguageSwitcher from './components/LanguageSwitcher';
 import MainContent from './components/MainContent';
 import MobileSocialLinks from './components/MobileSocialLinks';
 import SocialLinks from './components/SocialLinks';
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-black">
+      <LanguageSwitcher />
       <Header onNavClick={scrollToSection} />
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />
       <MainContent />

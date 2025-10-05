@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import inscapeLogo from '../assets/INSCAPE.png';
 
 interface HeaderProps {
@@ -8,6 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,10 +24,10 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
   }, []);
 
   const navItems = [
-    { label: 'What to Expect', id: 'what-to-expect' },
-    { label: 'About', id: 'about' },
-    { label: 'Music Journey', id: 'music-journey' },
-    { label: 'Practical Details', id: 'practical-details' },
+    { label: t('what_to_expect'), id: 'what-to-expect' },
+    { label: t('about'), id: 'about' },
+    { label: t('music_journey_nav'), id: 'music-journey' },
+    { label: t('practical_details_nav'), id: 'practical-details' },
   ];
 
   return (
