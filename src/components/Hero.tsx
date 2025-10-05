@@ -196,7 +196,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
       <div className="absolute inset-0 z-5 pointer-events-none">
         
         {/* Ambient floating particles */}
-        {Array.from({ length: 100 }).map((_, i) => {
+        {Array.from({ length: 50 }).map((_, i) => {
           const size = Math.random() * 3 + 1;
           return (
             <motion.div
@@ -228,7 +228,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={`orb-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-sm"
+            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-sm"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${15 + Math.random() * 70}%`,

@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Headphones, Heart, Music } from 'lucide-react';
 import React, { useRef } from 'react';
-import djPhoto from '../assets/phlippyphlaps_Please_turn_this_photo_into_a_professional_DJ_hea_5bbd032d-3713-4327-9bba-e0bd9654773d.png';
+import djPhoto from '../assets/philkami-dj-headshot.png';
 
 const DJIntroduction: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
