@@ -87,6 +87,15 @@ const resources = {
       "message_whatsapp": "Message on WhatsApp to reserve",
       "monthly_adults": "€25 • Monthly events • Adults 18+",
       
+      // DJ Introduction section
+      "meet_your": "Meet Your",
+      "journey_guide": "Journey Guide",
+      "dj_intro_1": "I'm Phil Kami, the DJ and facilitator behind InScape Movement.",
+      "dj_intro_2": "With years of experience curating transformative soundscapes, I guide you through a carefully crafted musical journey that invites authentic expression and deep connection.",
+      "dj_intro_3": "Every session is a living, breathing experience — adaptive, intuitive, and always in service of the collective energy in the room.",
+      "explore_mixes": "Explore My Mixes",
+      "creating_spaces": "Creating safe spaces for authentic movement since 2023",
+      
       // Footer
       "footer_copyright": "© 2025 InScape Movement. All rights reserved.",
       "footer_contact": "For bookings and inquiries, message us on WhatsApp or through our social channels."
@@ -174,6 +183,15 @@ const resources = {
       "book_spot_now": "Réserver Maintenant",
       "message_whatsapp": "Envoyez un message sur WhatsApp pour réserver",
       "monthly_adults": "25€ • Événements mensuels • Adultes 18+",
+      
+      // DJ Introduction section
+      "meet_your": "Rencontrez Votre",
+      "journey_guide": "Guide de Voyage",
+      "dj_intro_1": "Je suis Phil Kami, le DJ et facilitateur derrière InScape Movement.",
+      "dj_intro_2": "Avec des années d'expérience dans la création de paysages sonores transformateurs, je vous guide à travers un voyage musical soigneusement conçu qui invite à l'expression authentique et à la connexion profonde.",
+      "dj_intro_3": "Chaque session est une expérience vivante et respirante — adaptative, intuitive, et toujours au service de l'énergie collective dans la salle.",
+      "explore_mixes": "Découvrez Mes Mix",
+      "creating_spaces": "Créer des espaces sûrs pour le mouvement authentique depuis 2023",
       
       // Footer
       "footer_copyright": "© 2025 InScape Movement. Tous droits réservés.",

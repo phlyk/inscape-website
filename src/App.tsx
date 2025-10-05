@@ -39,7 +39,7 @@ function App() {
   }, [scrollToSection]);
 
   return (
-    <div className="App min-h-screen bg-black">
+    <div className="App min-h-screen bg-black overflow-x-hidden">
       <Header onNavClick={scrollToSection} />
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />
       <MainContent />

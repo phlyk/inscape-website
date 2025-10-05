@@ -35,8 +35,8 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10' 
-          : 'bg-transparent'
+          ? 'bg-black/90 backdrop-blur-lg border-b border-white/10' 
+          : 'bg-black/20 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
