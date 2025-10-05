@@ -43,9 +43,15 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, delay = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const lastUpdateTime = useRef<number>(0);
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      // Throttle updates to reduce flickering
+      const now = Date.now();
+      if (now - lastUpdateTime.current < 33) return; // ~30fps throttling
+      lastUpdateTime.current = now;
+      
       if (ref.current && isHovered) {
         const rect = ref.current.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -55,13 +61,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if (isHovered) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isHovered]);
 
   return (
     <motion.div
-      key={`feature-${Icon}`}
       ref={ref}
       className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
@@ -73,15 +80,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
         damping: 15
       }}
       whileHover={{ y: -5, scale: 1.02 }}
-      viewport={{ once: false, margin: "-50px" }}
+      viewport={{ once: true, margin: "-100px" }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      style={{ willChange: 'transform, opacity' }}
     >
       {/* Enhanced Spotlight effect */}
       <div 
         className={`absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
         style={{
-          background: `radial-gradient(400px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255,255,255,0.25), transparent 60%)`
+          background: `radial-gradient(400px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255,255,255,0.25), transparent 60%)`,
+          willChange: 'opacity'
         }}
       />
       {/* Card content */}
