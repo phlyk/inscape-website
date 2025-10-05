@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Clock, Euro, Heart, MapPin, Music, Shield, Users } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
 
@@ -41,69 +41,19 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, delay = 0 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const lastUpdateTime = useRef<number>(0);
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      // Throttle updates to reduce flickering
-      const now = Date.now();
-      if (now - lastUpdateTime.current < 33) return; // ~30fps throttling
-      lastUpdateTime.current = now;
-      
-      if (ref.current && isHovered) {
-        const rect = ref.current.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        ref.current.style.setProperty('--spotlight-x', `${x}%`);
-        ref.current.style.setProperty('--spotlight-y', `${y}%`);
-      }
-    };
-
-    if (isHovered) {
-      window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    }
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isHovered]);
-
   return (
-    <motion.div
-      ref={ref}
-      className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group overflow-hidden"
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ 
-        duration: 0.5, 
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }}
-      whileHover={{ y: -5, scale: 1.02 }}
-      viewport={{ once: true, margin: "-100px" }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      style={{ willChange: 'transform, opacity' }}
+    <SpotlightCard
+      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: delay }}
+      viewport={{ once: false }}
+      whileHover={{ y: -5 }}
     >
-      {/* Enhanced Spotlight effect */}
-      <div 
-        className={`absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
-        style={{
-          background: `radial-gradient(400px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255,255,255,0.25), transparent 60%)`,
-          willChange: 'opacity'
-        }}
-      />
-      {/* Card content */}
-      <div className="relative z-10">
-        <div className="mb-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <Icon size={24} className="text-white" />
-          </div>
-        </div>
-        <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-        <p className="text-white/80 leading-relaxed">{description}</p>
-      </div>
-    </motion.div>
+      <Icon size={32} className="text-purple-400 mx-auto mb-4" />
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-white/90">{description}</p>
+    </SpotlightCard>
   );
 };
 
