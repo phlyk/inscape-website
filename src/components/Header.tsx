@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import inscapeLogo from '../assets/INSCAPE.png';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface HeaderProps {
   onNavClick: (section: string) => void;
@@ -76,18 +77,21 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
             ))}
           </nav>
 
-          {/* Book Now Button - Desktop */}
-          <motion.button
-            className="hidden lg:block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => onNavClick('book-now')}
-          >
-            Book Now
-          </motion.button>
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
+            <motion.button
+              className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => onNavClick('book-now')}
+            >
+              {t('book_now')}
+            </motion.button>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -121,15 +125,18 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => {
-                onNavClick('book-now');
-                setIsMobileMenuOpen(false);
-              }}
-              className="block w-full text-left bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
-            >
-              Book Now
-            </button>
+            <div className="flex items-center justify-between gap-4">
+              <button
+                onClick={() => {
+                  onNavClick('book-now');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
+              >
+                {t('book_now')}
+              </button>
+              <LanguageSwitcher isMobile />
+            </div>
           </div>
         </motion.div>
       </div>

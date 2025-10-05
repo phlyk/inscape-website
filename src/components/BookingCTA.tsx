@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
 
 interface BookingCTAProps {
@@ -9,6 +10,8 @@ interface BookingCTAProps {
 }
 
 const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) => {
+  const { t } = useTranslation();
+  
   return (
     <section className={`py-20 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900 ${className}`}>
       <div className="container mx-auto px-4 lg:px-8">
@@ -37,7 +40,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: false }}
             >
-              Ready to Begin Your Journey?
+              {t('ready_to_begin')}
             </motion.h2>
             
             <motion.p
@@ -47,9 +50,9 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: false }}
             >
-              Join us monthly for an authentic movement experience. 
+              {t('join_monthly')}
               <br className="hidden lg:block" />
-              Reserve your spot and step into presence, play, and connection.
+              {t('reserve_spot')}
             </motion.p>
             
             <motion.div
@@ -65,16 +68,16 @@ const BookingCTA: React.FC<BookingCTAProps> = ({ onBookNow, className = '' }) =>
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Book Your Spot Now
+                {t('book_spot_now')}
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               
               <div className="text-center">
                 <p className="text-white/80 text-sm">
-                  Message on WhatsApp to reserve
+                  {t('message_whatsapp')}
                 </p>
                 <p className="text-white/60 text-xs mt-1">
-                  €25 • Monthly events • Adults 18+
+                  {t('monthly_adults')}
                 </p>
               </div>
             </motion.div>

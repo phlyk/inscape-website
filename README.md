@@ -9,3 +9,4 @@ SPA Landing page for Inscape Movement
     - Larger
     - Change icons I think
     - Hover over the heart makes it bounce
+- Some swirly non-linear delimitation between sections

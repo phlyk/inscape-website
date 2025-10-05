@@ -77,7 +77,19 @@ const resources = {
       
       // How to Join section
       "how_to_join": "How to Join",
-      "contact_method": "Send me a message on WhatsApp to book a spot, either in the group or privately."
+      "contact_method": "Send me a message on WhatsApp to book a spot, either in the group or privately.",
+      
+      // Booking CTA section
+      "ready_to_begin": "Ready to Begin Your Journey?",
+      "join_monthly": "Join us monthly for an authentic movement experience.",
+      "reserve_spot": "Reserve your spot and step into presence, play, and connection.",
+      "book_spot_now": "Book Your Spot Now",
+      "message_whatsapp": "Message on WhatsApp to reserve",
+      "monthly_adults": "€25 • Monthly events • Adults 18+",
+      
+      // Footer
+      "footer_copyright": "© 2025 InScape Movement. All rights reserved.",
+      "footer_contact": "For bookings and inquiries, message us on WhatsApp or through our social channels."
     }
   },
   fr: {
@@ -153,7 +165,19 @@ const resources = {
       
       // How to Join section
       "how_to_join": "Comment nous participer", 
-      "contact_method": "Envoyez-moi un message sur WhatsApp pour réserver une place, soit dans le groupe soit en privé."
+      "contact_method": "Envoyez-moi un message sur WhatsApp pour réserver une place, soit dans le groupe soit en privé.",
+      
+      // Booking CTA section
+      "ready_to_begin": "Prêt·e à Commencer Votre Voyage?",
+      "join_monthly": "Rejoignez-nous chaque mois pour une expérience de mouvement authentique.",
+      "reserve_spot": "Réservez votre place et entrez dans la présence, le jeu et la connexion.",
+      "book_spot_now": "Réserver Maintenant",
+      "message_whatsapp": "Envoyez un message sur WhatsApp pour réserver",
+      "monthly_adults": "25€ • Événements mensuels • Adultes 18+",
+      
+      // Footer
+      "footer_copyright": "© 2025 InScape Movement. Tous droits réservés.",
+      "footer_contact": "Pour les réservations et renseignements, contactez-nous sur WhatsApp ou via nos réseaux sociaux."
     }
   }
 };
@@ -167,8 +191,20 @@ i18n
     debug: false,
     
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      lookupLocalStorage: 'i18nextLng',
+      lookupSessionStorage: 'i18nextLng',
       caches: ['localStorage'],
+      excludeCacheFor: ['cimode'], // languages to not persist (cookie, localStorage)
+      // Convert language codes to our supported languages
+      convertDetectedLanguage: (lng: string) => {
+        // Handle French variations
+        if (lng.startsWith('fr')) return 'fr';
+        // Handle English variations  
+        if (lng.startsWith('en')) return 'en';
+        // Default fallback
+        return 'en';
+      }
     },
 
     interpolation: {

@@ -1,26 +1,78 @@
-import { Globe } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const LanguageSwitcher: React.FC = () => {
-  const { i18n, t } = useTranslation();
+interface LanguageSwitcherProps {
+  className?: string;
+  isMobile?: boolean;
+}
+
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = '', isMobile = false }) => {
+  const { i18n } = useTranslation();
+  const isFrench = i18n.language === 'fr';
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'fr' : 'en';
+    const newLang = isFrench ? 'en' : 'fr';
     i18n.changeLanguage(newLang);
   };
 
   return (
-    <button
+    <motion.button
       onClick={toggleLanguage}
-      className="fixed top-6 right-6 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-      aria-label={t('language')}
+      className={`relative flex items-center p-1 bg-white/10 backdrop-blur-md border border-white/30 rounded-full transition-all duration-300 hover:bg-white/20 ${className}`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      style={{ width: isMobile ? '60px' : '70px', height: isMobile ? '28px' : '32px' }}
     >
-      <Globe size={18} />
-      <span className="text-sm font-medium">
-        {i18n.language === 'en' ? 'FR' : 'EN'}
-      </span>
-    </button>
+      {/* Toggle Background */}
+      <motion.div
+        className="absolute inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+        animate={{
+          x: isFrench ? (isMobile ? '28px' : '34px') : '0px'
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 500,
+          damping: 30
+        }}
+        style={{ width: isMobile ? '20px' : '24px', height: isMobile ? '20px' : '24px' }}
+      />
+      
+      {/* Labels */}
+      <div className="relative z-10 flex items-center justify-between w-full px-2">
+        <AnimatePresence mode="wait">
+          <motion.span
+            key="en"
+            className={`text-xs font-bold transition-colors duration-300 ${
+              !isFrench ? 'text-white' : 'text-white/60'
+            }`}
+            animate={{ 
+              scale: !isFrench ? 1 : 0.8,
+              opacity: !isFrench ? 1 : 0.6
+            }}
+            transition={{ duration: 0.2 }}
+          >
+            EN
+          </motion.span>
+        </AnimatePresence>
+        
+        <AnimatePresence mode="wait">
+          <motion.span
+            key="fr"
+            className={`text-xs font-bold transition-colors duration-300 ${
+              isFrench ? 'text-white' : 'text-white/60'
+            }`}
+            animate={{ 
+              scale: isFrench ? 1 : 0.8,
+              opacity: isFrench ? 1 : 0.6
+            }}
+            transition={{ duration: 0.2 }}
+          >
+            FR
+          </motion.span>
+        </AnimatePresence>
+      </div>
+    </motion.button>
   );
 };
 
