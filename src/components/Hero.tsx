@@ -109,6 +109,8 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
           style={{
             backgroundImage: `url(${heroBg})`,
             filter: 'brightness(1) saturate(1.2)',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden', // Prevent flicker
           }}
         />
         {/* Gradient Overlay */}
@@ -198,7 +200,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
       <div className="absolute inset-0 z-5 pointer-events-none">
         
         {/* Ambient floating particles */}
-        {Array.from({ length: 50 }).map((_, i) => {
+        {Array.from({ length: 40 }).map((_, i) => {
           const size = Math.random() * 3 + 1;
           return (
             <motion.div
@@ -209,40 +211,44 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
                 height: size,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
+                willChange: 'transform, opacity',
               }}
               animate={{
                 y: [-30, 30, -30],
                 x: [-10, 10, -10],
-                opacity: [0.2, 0.8, 0.15],
+                opacity: [0.3, 0.7, 0.3],
                 scale: [0.5, 1.5, 0.5],
               }}
               transition={{
-                duration: 6 + Math.random() * 4,
+                duration: 6 + (i % 4), // More predictable timing
                 repeat: Infinity,
-                delay: Math.random() * 3,
+                delay: (i % 3) * 0.5, // Staggered delays
                 ease: "easeInOut",
+                repeatType: "reverse",
               }}
             />
           );
         })}
         
         {/* Glowing orbs */}
-        {Array.from({ length: 8 }).map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={`orb-${i}`}
             className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-sm"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${15 + Math.random() * 70}%`,
+              willChange: 'transform, opacity',
             }}
             animate={{
               scale: [1, 20, 1],
-              opacity: [0.3, 0.8, 0.3],
+              opacity: [0.3, 1, 0.3],
             }}
             transition={{
-              duration: 6 + Math.random() * 2,
+              duration: 8 + (i % 3), // More predictable timing
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: i * 0.8, // Staggered delays
+              repeatType: "reverse",
             }}
           />
         ))}

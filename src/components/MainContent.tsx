@@ -61,6 +61,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
 
   return (
     <motion.div
+      key={`feature-${Icon}`}
       ref={ref}
       className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}

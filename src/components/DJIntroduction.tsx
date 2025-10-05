@@ -24,31 +24,6 @@ const DJIntroduction: React.FC = () => {
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-b from-gray-900 via-black to-purple-900/20 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Floating particles for ambiance */}
-        {Array.from({ length: 12 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-            }}
-            animate={{
-              y: [-20, 20, -20],
-              opacity: [0.2, 0.6, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div 
           className="max-w-6xl mx-auto"

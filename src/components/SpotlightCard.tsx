@@ -24,9 +24,15 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const lastUpdateTime = useRef<number>(0);
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      // Throttle updates to ~30fps instead of 60fps+ to reduce CPU load
+      const now = Date.now();
+      if (now - lastUpdateTime.current < 33) return; // ~30fps throttling
+      lastUpdateTime.current = now;
+      
       if (ref.current && isHovered) {
         const rect = ref.current.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -36,7 +42,9 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    if (isHovered) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isHovered]);
 

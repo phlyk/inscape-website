@@ -22,13 +22,13 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = '', isM
       className={`relative flex items-center p-1 bg-white/10 backdrop-blur-md border border-white/30 rounded-full transition-all duration-300 hover:bg-white/20 ${className}`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      style={{ width: isMobile ? '60px' : '70px', height: isMobile ? '28px' : '32px' }}
+      style={{ width: '60px', height: isMobile ? '28px' : '32px' }}
     >
       {/* Toggle Background */}
       <motion.div
         className="absolute inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
         animate={{
-          x: isFrench ? (isMobile ? '28px' : '34px') : '0px'
+          x: isFrench ? '28px' : '0px'
         }}
         transition={{
           type: 'spring',
@@ -39,7 +39,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = '', isM
       />
       
       {/* Labels */}
-      <div className="relative z-10 flex items-center justify-between w-full px-2">
+      <div className="relative z-10 flex items-center justify-between w-full px-1">
         <AnimatePresence mode="wait">
           <motion.span
             key="en"
@@ -59,9 +59,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = '', isM
         <AnimatePresence mode="wait">
           <motion.span
             key="fr"
-            className={`text-xs font-bold transition-colors duration-300 ${
-              isFrench ? 'text-white' : 'text-white/60'
-            }`}
+            className={"text-xs font-bold transition-colors duration-300 text-white"}
             animate={{ 
               scale: isFrench ? 1 : 0.8,
               opacity: isFrench ? 1 : 0.6
