@@ -98,6 +98,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
     <section
       ref={heroRef}
       className="relative h-screen overflow-hidden bg-black flex items-center justify-center"
+      style={{ paddingTop: '6rem' }}
     >
       {/* Background Image with Parallax */}
       <motion.div
@@ -234,7 +235,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         {Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={`orb-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-sm"
+            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/60 to-blue-500/60 rounded-full blur-sm"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${15 + Math.random() * 70}%`,
@@ -242,7 +243,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
             }}
             animate={{
               scale: [1, 20, 1],
-              opacity: [0.3, 1, 0.3],
+              opacity: [0.6, 0.9, 0.5],
             }}
             transition={{
               duration: 8 + (i % 3), // More predictable timing

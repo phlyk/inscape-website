@@ -15,6 +15,9 @@ const resources = {
       "music_journey_nav": "Music Journey",
       "practical_details_nav": "Practical Details",
       
+      // Notice Banner
+      "notice_banner": "No session on 11th October - Next session November 15th",
+      
       // Hero section
       "hero_title": "InScape Movement",
       "hero_subtitle": "Conscious Dance & Movement Meditation",
@@ -111,6 +114,9 @@ const resources = {
       "about": "À Propos",
       "music_journey_nav": "Voyage Musical",
       "practical_details_nav": "Infos Pratiques",
+      
+      // Notice Banner
+      "notice_banner": "Pas de session le 11 octobre - Prochaine session le 15 novembre",
       
       // Hero section  
       "hero_title": "InScape Movement",
