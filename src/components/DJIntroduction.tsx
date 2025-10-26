@@ -99,7 +99,7 @@ const DJIntroduction: React.FC = () => {
                 >
                   <img
                     src={djPhoto}
-                    alt="Phil Kami - InScape Movement DJ"
+                    alt="philkami - InScape Movement DJ"
                     className="w-full h-full object-cover"
                   />
 

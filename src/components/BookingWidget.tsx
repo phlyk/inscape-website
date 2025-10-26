@@ -62,42 +62,26 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '' }) => {
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: false }}
           >
-            {/* BilletWeb Integration */}
-            <div className="relative w-full" style={{ minHeight: '600px' }}>
+            {/* Clean BilletWeb Integration - No Scripts, Pure Iframe */}
+            <div className="relative w-full overflow-hidden rounded-xl" style={{ minHeight: '600px' }}>
               <iframe
                 src={BOOKING_LINKS.billetWeb}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                scrolling="auto"
+                title="InScape Movement Event Booking"
+                className="w-full h-full bg-white rounded-xl shadow-xl relative z-10"
+                loading="lazy"
+                allow="payment; geolocation"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
                 style={{
-                  width: '100%',
-                  height: '600px',
+                  minHeight: '600px',
                   border: 'none',
                   borderRadius: '12px',
+                  display: 'block',
                 }}
-                title="InScape Movement Event Booking"
-                className="bg-white rounded-xl shadow-xl"
-                loading="lazy"
-                allowFullScreen
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
               />
-              
-              {/* Loading overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl flex items-center justify-center pointer-events-none">
-                <div className="text-white/60 text-center">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.5, 1, 0.5]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Calendar size={32} className="mx-auto mb-2" />
-                  </motion.div>
-                  <p className="text-sm">Loading booking system...</p>
-                </div>
-              </div>
             </div>
 
             {/* Additional Info */}

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import heroBg from '../assets/hero-bg.png';
 import inscapeLogo from '../assets/INSCAPE.png';
+import { SOCIAL_LINKS } from '../config/constants';
 
 // Separate component for cursor-following particles to avoid hooks in callback
 const CursorFollowingParticle: React.FC<{
@@ -98,7 +99,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
     <section
       ref={heroRef}
       className="relative h-screen overflow-hidden bg-black flex items-center justify-center"
-      style={{ paddingTop: '6rem' }}
+      style={{ paddingTop: '5rem' }}
     >
       {/* Background Image with Parallax */}
       <motion.div
@@ -168,14 +169,16 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
             {t('book_now')}
           </motion.button>
           
-          <motion.button
-            onClick={onLearnMore}
-            className="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm"
+          <motion.a
+            href={SOCIAL_LINKS.whatsappGroup}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-green-500/50 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 backdrop-blur-sm inline-block"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            {t('join_us')}
-          </motion.button>
+            {t('join_community')}
+          </motion.a>
         </motion.div>
 
         {/* Scroll Indicator */}

@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Facebook, Instagram, MessageCircle, Music, Share2 } from 'lucide-react';
+import { Facebook, Instagram, MessageCircle, Music, Share2, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { SOCIAL_LINKS } from '../config/constants';
 
 const MobileSocialLinks: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Open by default for better visibility
 
   const socialLinks = [
     {
@@ -15,7 +15,7 @@ const MobileSocialLinks: React.FC = () => {
     },
     {
       icon: Instagram,
-      label: 'DJ Phil Kami',
+      label: 'DJ philkami',
       url: SOCIAL_LINKS.instagramDJ,
       color: 'from-purple-500 to-blue-500',
     },
@@ -41,16 +41,41 @@ const MobileSocialLinks: React.FC = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-40 lg:hidden">
-      {/* Main FAB Button */}
+      {/* Main FAB Button - Shows X when open, Share2 when closed */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg flex items-center justify-center"
+        className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center ${
+          isOpen 
+            ? 'bg-gradient-to-r from-gray-600 to-gray-700' 
+            : 'bg-gradient-to-r from-purple-500 to-blue-500'
+        }`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        animate={{ rotate: isOpen ? 45 : 0 }}
         transition={{ duration: 0.2 }}
       >
-        <Share2 size={24} className="text-white" />
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, scale: 0.8 }}
+              animate={{ rotate: 0, scale: 1 }}
+              exit={{ rotate: 90, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X size={24} className="text-white" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open"
+              initial={{ rotate: 90, scale: 0.8 }}
+              animate={{ rotate: 0, scale: 1 }}
+              exit={{ rotate: -90, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Share2 size={24} className="text-white" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.button>
 
       {/* Social Link Buttons */}

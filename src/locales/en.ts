@@ -3,6 +3,8 @@ export const en = {
   "language": "Language",
   "book_now": "Book Your Spot", 
   "join_us": "Join Us",
+  "chat_with_us": "Chat With Us",
+  "join_community": "Join Community",
   "what_to_expect": "What to Expect",
   "about": "About",
   "music_journey_nav": "Music Journey",
@@ -86,7 +88,7 @@ export const en = {
   // DJ Introduction section
   "meet_your": "Meet Your",
   "journey_guide": "Journey Guide",
-  "dj_intro_1": "I'm Phil Kami, the DJ and facilitator behind InScape Movement.",
+  "dj_intro_1": "I'm philkami, the DJ and facilitator behind InScape Movement.",
   "dj_intro_2": "With years of experience curating transformative soundscapes, I guide you through a carefully crafted musical journey that invites authentic expression and deep connection.",
   "dj_intro_3": "Every session is a living, breathing experience — adaptive, intuitive, and always in service of the collective energy in the room.",
   "explore_mixes": "Explore My Mixes",
