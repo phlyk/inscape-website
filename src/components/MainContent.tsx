@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Clock, Euro, Heart, MapPin, Music, Shield, Users } from 'lucide-react';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { SOCIAL_LINKS } from '../config/constants';
 import SpotlightCard from './SpotlightCard';
 
 interface SectionProps {
@@ -204,7 +205,7 @@ const MainContent: React.FC = () => {
                     {t('sound_system_desc')}
                   </p>
                   <motion.a
-                    href="https://soundcloud.com/philkami"
+                    href={SOCIAL_LINKS.soundcloud}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300"

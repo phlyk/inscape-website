@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Facebook, Instagram, MessageCircle, Music, Share2 } from 'lucide-react';
 import React, { useState } from 'react';
+import { SOCIAL_LINKS } from '../config/constants';
 
 const MobileSocialLinks: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,31 +10,31 @@ const MobileSocialLinks: React.FC = () => {
     {
       icon: Instagram,
       label: 'InScape Events',
-      url: '#', // Replace with actual Instagram URL
+      url: SOCIAL_LINKS.instagramEvents,
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Instagram,
       label: 'DJ Phil Kami',
-      url: '#', // Replace with actual Instagram URL
+      url: SOCIAL_LINKS.instagramDJ,
       color: 'from-purple-500 to-blue-500',
     },
     {
       icon: Facebook,
       label: 'InScape Movement',
-      url: '#', // Replace with actual Facebook URL
+      url: SOCIAL_LINKS.facebook,
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Music,
       label: 'SoundCloud',
-      url: 'https://soundcloud.com/philkami',
+      url: SOCIAL_LINKS.soundcloud,
       color: 'from-orange-500 to-red-500',
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp Booking',
-      url: '#', // Replace with actual WhatsApp URL
+      url: SOCIAL_LINKS.whatsappGroup,
       color: 'from-green-500 to-green-600',
     },
   ];

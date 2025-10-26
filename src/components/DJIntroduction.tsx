@@ -3,6 +3,7 @@ import { Headphones, Heart, Music } from "lucide-react";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import djPhoto from "../assets/philkami-headshot-colours.png";
+import { SOCIAL_LINKS } from "../config/constants";
 
 const DJIntroduction: React.FC = () => {
   const { t } = useTranslation();
@@ -195,7 +196,7 @@ const DJIntroduction: React.FC = () => {
                 viewport={{ once: false }}
               >
                 <motion.a
-                  href="https://soundcloud.com/philkami"
+                  href={SOCIAL_LINKS.soundcloud}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-lg"

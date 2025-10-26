@@ -1,37 +1,38 @@
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, MessageCircle, Music } from 'lucide-react';
 import React from 'react';
+import { SOCIAL_LINKS } from '../config/constants';
 
 const SocialLinks: React.FC = () => {
   const socialLinks = [
     {
       icon: Instagram,
       label: 'InScape Events',
-      url: 'https://www.instagram.com/inscapemovement/',
+      url: SOCIAL_LINKS.instagramEvents,
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Instagram,
       label: 'DJ philkami',
-      url: 'https://www.instagram.com/philkamisound/',
+      url: SOCIAL_LINKS.instagramDJ,
       color: 'from-purple-500 to-blue-500',
     },
     {
       icon: Facebook,
       label: 'Inscape Movement',
-      url: 'https://www.facebook.com/profile.php?id=61580909900812',
+      url: SOCIAL_LINKS.facebook,
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Music,
       label: 'SoundCloud',
-      url: 'https://soundcloud.com/philkami',
+      url: SOCIAL_LINKS.soundcloud,
       color: 'from-orange-500 to-red-500',
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp Group',
-      url: 'https://chat.whatsapp.com/CRCgrDb9AOAIONK4Wv5QIO',
+      url: SOCIAL_LINKS.whatsappGroup,
       color: 'from-green-500 to-green-600',
     },
   ];

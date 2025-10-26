@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
-import BookingCTA from './components/BookingCTA';
+import BookingWidget from './components/BookingWidget';
 import DJIntroduction from './components/DJIntroduction';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -15,9 +15,8 @@ function App() {
   
   const scrollToSection = useCallback((sectionId: string) => {
     if (sectionId === 'book-now') {
-      // Handle booking - for now, we'll scroll to practical details
-      // Later you can replace this with actual booking functionality
-      const element = document.getElementById('practical-details');
+      // Scroll to the booking widget
+      const element = document.getElementById('booking-widget');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
@@ -31,8 +30,11 @@ function App() {
   }, []);
 
   const handleBookNow = useCallback(() => {
-    // For now, alert the user. Later replace with actual booking logic
-    alert('Booking functionality will be implemented here. For now, please message via WhatsApp!');
+    // Scroll to the booking widget section
+    const element = document.getElementById('booking-widget');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }, []);
 
   const handleLearnMore = useCallback(() => {
@@ -46,7 +48,7 @@ function App() {
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />
       <MainContent />
       <DJIntroduction />
-      <BookingCTA onBookNow={handleBookNow} />
+      <BookingWidget />
       <SocialLinks />
       <MobileSocialLinks />
       
