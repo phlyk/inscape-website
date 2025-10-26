@@ -1,16 +1,16 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Headphones, Heart, Music } from 'lucide-react';
-import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import djPhoto from '../assets/philkami-dj-headshot.png';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Headphones, Heart, Music } from "lucide-react";
+import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
+import djPhoto from "../assets/philkami-headshot-colours.png";
 
 const DJIntroduction: React.FC = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   // Parallax effects
@@ -20,15 +20,12 @@ const DJIntroduction: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative py-32 bg-gradient-to-b from-gray-900 via-black to-purple-900/20 overflow-hidden"
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <motion.div 
-          className="max-w-6xl mx-auto"
-          style={{ opacity }}
-        >
+        <motion.div className="max-w-6xl mx-auto" style={{ opacity }}>
           {/* Section Header */}
           <motion.div
             className="text-center mb-16"
@@ -45,14 +42,13 @@ const DJIntroduction: React.FC = () => {
               viewport={{ once: false }}
             >
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                {t('meet_your')} {t('journey_guide')}
+                {t("meet_your")} {t("journey_guide")}
               </span>
             </motion.h2>
           </motion.div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
             {/* Photo Side */}
-            <motion.div 
+            <motion.div
               className="flex justify-center lg:justify-end order-1 lg:order-1"
               style={{ y, rotateX, scale }}
             >
@@ -66,26 +62,26 @@ const DJIntroduction: React.FC = () => {
                       "0 0 0 20px rgba(168, 85, 247, 0.1)",
                       "0 0 0 40px rgba(168, 85, 247, 0.05)",
                       "0 0 0 0px rgba(168, 85, 247, 0.4)",
-                    ]
+                    ],
                   }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                 />
-                
+
                 {/* Rotating border */}
                 <motion.div
                   className="absolute inset-0 rounded-full p-1"
                   style={{
-                    background: "conic-gradient(from 0deg, #a855f7, #3b82f6, #8b5cf6, #a855f7)"
+                    background: "conic-gradient(from 0deg, #a855f7, #3b82f6, #8b5cf6, #a855f7)",
                   }}
                   animate={{ rotate: 360 }}
                   transition={{
                     duration: 20,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
                   }}
                 >
                   <div className="w-full h-full rounded-full bg-black" />
@@ -94,9 +90,9 @@ const DJIntroduction: React.FC = () => {
                 {/* Main photo */}
                 <motion.div
                   className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl"
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)"
+                    boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)",
                   }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -105,7 +101,7 @@ const DJIntroduction: React.FC = () => {
                     alt="Phil Kami - InScape Movement DJ"
                     className="w-full h-full object-cover"
                   />
-                  
+
                   {/* Overlay gradient for depth */}
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-transparent" />
                 </motion.div>
@@ -120,7 +116,7 @@ const DJIntroduction: React.FC = () => {
                   transition={{
                     duration: 6,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                 >
                   <Music size={24} className="text-white" />
@@ -136,7 +132,7 @@ const DJIntroduction: React.FC = () => {
                     duration: 5,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 1
+                    delay: 1,
                   }}
                 >
                   <Headphones size={28} className="text-white" />
@@ -145,7 +141,7 @@ const DJIntroduction: React.FC = () => {
             </motion.div>
 
             {/* Content Side */}
-            <motion.div 
+            <motion.div
               className="text-center lg:text-left order-2 lg:order-2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -169,9 +165,9 @@ const DJIntroduction: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: false }}
               >
-                {t('meet_your')}{' '}
+                {t("meet_your")}{" "}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  {t('journey_guide')}
+                  {t("journey_guide")}
                 </span>
               </motion.h2>
 
@@ -183,13 +179,11 @@ const DJIntroduction: React.FC = () => {
                 viewport={{ once: false }}
               >
                 <p>
-                  <span className="text-purple-300 font-semibold">{t('dj_intro_1')}</span>
+                  <span className="text-purple-300 font-semibold">{t("dj_intro_1")}</span>
                 </p>
+                <p>{t("dj_intro_2")}</p>
                 <p>
-                  {t('dj_intro_2')}
-                </p>
-                <p>
-                  <span className="text-blue-300 font-medium">{t('dj_intro_3')}</span>
+                  <span className="text-blue-300 font-medium">{t("dj_intro_3")}</span>
                 </p>
               </motion.div>
 
@@ -209,16 +203,14 @@ const DJIntroduction: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Music size={20} className="mr-2" />
-                  {t('explore_mixes')}
+                  {t("explore_mixes")}
                 </motion.a>
-                
+
                 <motion.div
                   className="text-center sm:text-left text-white/70 text-sm flex items-center justify-center lg:justify-start"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <span>
-                    {t('creating_spaces')}
-                  </span>
+                  <span>{t("creating_spaces")}</span>
                 </motion.div>
               </motion.div>
             </motion.div>

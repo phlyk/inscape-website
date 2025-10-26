@@ -235,7 +235,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         {Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={`orb-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/60 to-blue-500/60 rounded-full blur-sm"
+            className="absolute w-4 h-4 bg-gradient-to-r from-purple-500/90 to-blue-500/90 rounded-full blur-sm"
             style={{
               left: `${15 + Math.random() * 70}%`,
               top: `${15 + Math.random() * 70}%`,
