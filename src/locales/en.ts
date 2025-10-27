@@ -101,4 +101,6 @@ export const en = {
   // Booking Widget
   "booking_widget_title": "Book Your Experience",
   "booking_widget_subtitle": "Secure your spot for upcoming InScape Movement sessions",
+  "secure_booking_powered": "Secure online booking powered by BilletWeb",
+  "open_new_window": "Open in new window",
 };

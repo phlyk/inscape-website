@@ -101,4 +101,6 @@ export const fr = {
   // Booking Widget
   "booking_widget_title": "Réservez Votre Expérience",
   "booking_widget_subtitle": "Réservez votre place pour les prochaines sessions InScape Movement",
+  "secure_booking_powered": "Réservation sécurisée propulsée par BilletWeb",
+  "open_new_window": "Ouvrir dans une nouvelle fenêtre",
 };

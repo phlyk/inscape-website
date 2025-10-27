@@ -93,7 +93,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '' }) => {
               viewport={{ once: false }}
             >
               <p className="text-white/80 text-sm mb-4">
-                Secure online booking powered by BilletWeb
+                {t('secure_booking_powered')}
               </p>
               <motion.a
                 href={BOOKING_LINKS.billetWeb}
@@ -103,7 +103,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '' }) => {
                 whileHover={{ scale: 1.05 }}
               >
                 <ExternalLink size={16} className="mr-1" />
-                Open in new window
+                {t('open_new_window')}
               </motion.a>
             </motion.div>
           </motion.div>
