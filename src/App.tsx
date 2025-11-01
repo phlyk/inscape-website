@@ -14,18 +14,74 @@ function App() {
   const { t } = useTranslation();
   
   const scrollToSection = useCallback((sectionId: string) => {
-    if (sectionId === 'book-now') {
-      // Scroll to the booking widget
-      const element = document.getElementById('booking-widget');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    console.log('scrollToSection called with:', sectionId); // Debug log
+    
+    // Handle special cases
+    const targetElementId = sectionId === 'book-now' ? 'booking-widget' : sectionId;
+    const element = document.getElementById(targetElementId);
+    
+    if (!element) {
+      console.log('Element not found:', targetElementId); // Debug log
       return;
     }
 
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    console.log('Element found, scrolling to:', targetElementId); // Debug log
+    
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
+    if (isMobile) {
+      console.log('Mobile device detected, using scrollIntoView with offset'); // Debug log
+      
+      // Get element position and apply header offset manually
+      const elementRect = element.getBoundingClientRect();
+      const elementTop = elementRect.top + window.pageYOffset;
+      const headerOffset = 80; // Just the header height, no extra padding
+      const targetPosition = elementTop - headerOffset;
+      
+      console.log('Mobile scroll target position:', targetPosition); // Debug log
+      
+      // Try a different scrolling method for mobile
+      try {
+        setTimeout(() => {
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }, 50); // Small delay to ensure smooth scroll
+      } catch (error) {
+        console.log('window.scrollTo failed, trying scrollIntoView fallback'); // Debug log
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } else {
+      // Desktop: use the directional logic
+      const currentScrollY = window.pageYOffset;
+      const elementTop = element.getBoundingClientRect().top + currentScrollY;
+      const isScrollingDown = currentScrollY < elementTop;
+      
+      console.log('Scroll direction:', isScrollingDown ? 'down' : 'up'); // Debug log
+      
+      if (isScrollingDown) {
+        // Scrolling down: need offset for header (80px) + section padding (80px)
+        const headerOffset = 160;
+        const offsetPosition = elementTop - headerOffset;
+        
+        console.log('Scrolling to position:', offsetPosition); // Debug log
+        
+        setTimeout(() => {
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 50); // Small delay to ensure smooth scroll
+      } else {
+        // Scrolling up: use native scrollIntoView which works perfectly
+        console.log('Using scrollIntoView'); // Debug log
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+        // For mobile, use scrollIntoView which is more reliable
+      }
     }
   }, []);
 
@@ -42,7 +98,7 @@ function App() {
       {/* <NoticeBanner /> */}
       <Header onNavClick={scrollToSection} />
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />
-      <MainContent />
+      <MainContent onScrollToSection={scrollToSection} />
       <DJIntroduction />
       <BookingWidget />
       <SocialLinks />

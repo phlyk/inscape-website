@@ -111,27 +111,40 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
             opacity: isMobileMenuOpen ? 1 : 0 
           }}
           transition={{ duration: 0.3 }}
+          style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
         >
           <div className="py-4 space-y-4 border-t border-white/10">
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => {
-                  onNavClick(item.id);
-                  setIsMobileMenuOpen(false);
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Mobile nav clicked:', item.id); // Debug log
+                  setTimeout(() => {
+                    onNavClick(item.id);
+                    setIsMobileMenuOpen(false);
+                  }, 50); // Small delay to ensure menu state updates
                 }}
                 className="block w-full text-left text-white/90 hover:text-white font-medium py-2 px-4 hover:bg-white/5 rounded-lg transition-colors duration-300"
+                disabled={!isMobileMenuOpen}
               >
                 {item.label}
               </button>
             ))}
             <div className="flex items-center justify-between gap-4">
               <button
-                onClick={() => {
-                  onNavClick('book-now');
-                  setIsMobileMenuOpen(false);
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Mobile book now clicked'); // Debug log
+                  setTimeout(() => {
+                    onNavClick('booking-widget');
+                    setIsMobileMenuOpen(false);
+                  }, 50);
                 }}
                 className="flex-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
+                disabled={!isMobileMenuOpen}
               >
                 {t('book_now')}
               </button>

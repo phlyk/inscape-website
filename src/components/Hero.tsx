@@ -188,7 +188,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col items-center"
         >
-          <span className="text-white/60 text-sm mb-2 font-light">Discover the Journey</span>
+          <span className="text-white/60 text-sm mb-2 font-light">{t('discover_journey')}</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
