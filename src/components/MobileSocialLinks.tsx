@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Facebook, Instagram, MessageCircle, Music, Share2, X } from 'lucide-react';
+import { Facebook, Instagram, Music, Share2, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { SOCIAL_LINKS } from '../config/constants';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const MobileSocialLinks: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true); // Open by default for better visibility
@@ -32,7 +33,7 @@ const MobileSocialLinks: React.FC = () => {
       color: 'from-orange-500 to-red-500',
     },
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       label: 'WhatsApp Booking',
       url: SOCIAL_LINKS.whatsappGroup,
       color: 'from-green-500 to-green-600',

@@ -101,6 +101,7 @@ const DJIntroduction: React.FC = () => {
                     src={djPhoto}
                     alt="philkami - InScape Movement DJ"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
 
                   {/* Overlay gradient for depth */}

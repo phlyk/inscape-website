@@ -107,7 +107,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         className="absolute inset-0 z-0"
       >
         <div
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          className="w-full h-full bg-cover bg-center bg-no-repeat bg-gray-900"
           style={{
             backgroundImage: `url(${heroBg})`,
             filter: 'brightness(1) saturate(1.2)',

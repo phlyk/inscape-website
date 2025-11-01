@@ -96,7 +96,9 @@ export const en = {
   
   // Footer
   "footer_copyright": "© 2025 InScape Movement. All rights reserved.",
-  "footer_contact": "Book online above or message us on WhatsApp for inquiries.",
+  "footer_contact": "Book online above or message us on",
+  "footer_whatsapp": "WhatsApp",
+  "footer_contact_end": "for inquiries.",
   
   // Booking Widget
   "booking_widget_title": "Book Your Experience",

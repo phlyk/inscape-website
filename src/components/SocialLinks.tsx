@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, MessageCircle, Music } from 'lucide-react';
+import { Facebook, Instagram, Music } from 'lucide-react';
 import React from 'react';
 import { SOCIAL_LINKS } from '../config/constants';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const SocialLinks: React.FC = () => {
   const socialLinks = [
@@ -30,7 +31,7 @@ const SocialLinks: React.FC = () => {
       color: 'from-orange-500 to-red-500',
     },
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       label: 'WhatsApp Group',
       url: SOCIAL_LINKS.whatsappGroup,
       color: 'from-green-500 to-green-600',

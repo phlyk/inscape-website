@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import MainContent from './components/MainContent';
 import MobileSocialLinks from './components/MobileSocialLinks';
 import SocialLinks from './components/SocialLinks';
+import { SOCIAL_LINKS } from './config/constants';
 
 function App() {
   const { t } = useTranslation();
@@ -29,12 +30,8 @@ function App() {
   }, []);
 
   const handleBookNow = useCallback(() => {
-    // Scroll to the booking widget section
-    const element = document.getElementById('booking-widget');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
+    scrollToSection('booking-widget');
+  }, [scrollToSection]);
 
   const handleLearnMore = useCallback(() => {
     scrollToSection('what-to-expect');
@@ -52,12 +49,21 @@ function App() {
       <MobileSocialLinks />
       
       {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-8">
+      <footer className="bg-black border-t border-white/10 py-4">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center text-white/60">
-            <p className="mb-2">{t('footer_copyright')}</p>
-            <p className="text-sm">
-              {t('footer_contact')}
+            <p className="mb-1 text-xs">{t('footer_copyright')}</p>
+            <p className="text-xs">
+              {t('footer_contact')}{' '}
+              <a 
+                href={SOCIAL_LINKS.whatsappGroup}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 hover:text-green-300 underline transition-colors duration-200"
+              >
+                {t('footer_whatsapp')}
+              </a>{' '}
+              {t('footer_contact_end')}
             </p>
           </div>
         </div>

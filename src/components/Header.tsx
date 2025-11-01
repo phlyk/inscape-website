@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
 
   const navItems = [
     { label: t('what_to_expect'), id: 'what-to-expect' },
-    { label: t('about'), id: 'about' },
+    { label: t('key_features'), id: 'key-features' },
     { label: t('music_journey_nav'), id: 'music-journey' },
     { label: t('practical_details_nav'), id: 'practical-details' },
   ];
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => onNavClick('book-now')}
+              onClick={() => onNavClick('booking-widget')}
             >
               {t('book_now')}
             </motion.button>
