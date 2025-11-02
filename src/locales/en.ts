@@ -13,8 +13,8 @@ export const en = {
   
   // Hero section
   "hero_title": "INSCAPE Movement",
-  "hero_subtitle": "Conscious Dance & Movement Meditation",
-  "hero_description": "Experience conscious dance and connect with your inner landscape through guided movement meditation.",
+  "hero_subtitle": "Free Dance & Movement Meditation",
+  "hero_description": "Experience free dance and connect with your inner landscape through guided movement meditation in Southwest France.",
   
   // What is INSCAPE section
   "what_is_inscape": "What is Inscape Movement?",
@@ -29,7 +29,7 @@ export const en = {
   "see_musical_journey": "see Musical Journey",
 
   "gentle_guidance": "Gentle Guidance", 
-  "gentle_guidance_desc": "There will be gentle invitations to awareness (of body, space, others, silence) or to explore other forms of movement",
+  "gentle_guidance_desc": "There will be gentle invitations to awareness (of body, space, others, silence) or to explore other forms of free dance movement",
 
   "bilingual": "Bilingual",
   "bilingual_desc": "Guided in French and English — adapting to what is needed",
@@ -83,11 +83,11 @@ export const en = {
   "dj_intro_2": "With years of experience curating transformative soundscapes, I guide you through a carefully crafted musical journey that invites authentic expression and deep connection.",
   "dj_intro_3": "Every session is a living, breathing experience — adaptive, intuitive, and always in service of the collective energy in the room.",
   "explore_mixes": "Explore My Mixes",
-  "creating_spaces": "Creating safe spaces for authentic movement since 2019",
+  "creating_spaces": "Creating safe spaces for authentic free dance since 2019",
   
   // Booking Widget
   "booking_widget_title": "Book Your Experience",
-  "booking_widget_subtitle": "Secure your spot for upcoming INSCAPE Movement sessions",
+  "booking_widget_subtitle": "Secure your spot for upcoming INSCAPE Movement sessions in Pau",
   "secure_booking_powered": "Secure online booking powered by BilletWeb",
   "open_new_window": "Open in new window",
 
@@ -96,4 +96,10 @@ export const en = {
   "footer_contact": "Book online above or message us on",
   "footer_whatsapp": "WhatsApp",
   "footer_contact_end": "for inquiries.",
+
+  // SEO & Alt Text
+  "seo_h1": "Free dance and movement meditation in Pau, Southwest France",
+  "alt_hero_logo": "INSCAPE Movement - Free dance and movement meditation in Pau",
+  "alt_header_logo": "INSCAPE Movement - Conscious dance Pau Southwest",
+  "alt_dj_photo": "philkami - DJ and facilitator of free dance and ecstatic dance in Pau",
 };

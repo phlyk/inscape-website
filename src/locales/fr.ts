@@ -14,7 +14,7 @@ export const fr = {
   // Hero section
   "hero_title": "INSCAPE Movement",
   "hero_subtitle": "Danse Libre & Méditation en Mouvement",
-  "hero_description": "Expérimentez la danse libre et connectez-vous à votre paysage intérieur à travers la méditation en mouvement guidée à Pau au Sud-Ouest.",
+  "hero_description": "Expérimentez la danse libre et connectez-vous à votre paysage intérieur à travers la méditation en mouvement à Pau au Sud-Ouest.",
   
   // What is INSCAPE section
   "what_is_inscape": "C'est quoi Inscape Movement?",
@@ -96,4 +96,10 @@ export const fr = {
   "footer_contact": "Réservez en ligne ci-dessus ou contactez-nous sur",
   "footer_whatsapp": "WhatsApp",
   "footer_contact_end": "pour toute question.",
+
+  // SEO & Alt Text
+  "seo_h1": "Danse libre et méditation en mouvement à Pau, Sud-Ouest France",
+  "alt_hero_logo": "INSCAPE Movement - Danse libre et méditation en mouvement à Pau",
+  "alt_header_logo": "INSCAPE Movement - Danse consciente Pau Sud-Ouest", 
+  "alt_dj_photo": "philkami - DJ et facilitateur de danse libre et ecstatic dance à Pau",
 };

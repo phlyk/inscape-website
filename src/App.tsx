@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import MainContent from "./components/MainContent";
 import MobileSocialLinks from "./components/MobileSocialLinks";
+import SEOHreflang from "./components/SEOHreflang";
+import SEOSchema from "./components/SEOSchema";
 import SocialLinks from "./components/SocialLinks";
 import { SOCIAL_LINKS } from "./config/constants";
 
@@ -50,9 +52,13 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-black overflow-x-hidden">
+      {/* SEO Management */}
+      <SEOHreflang />
+      <SEOSchema />
+      
       {/* SEO H1 - Hidden but accessible */}
       <h1 className="sr-only">
-        {t("hero_title")} - Danse libre et méditation en mouvement à Pau, Sud-Ouest France
+        {t("hero_title")} - {t("seo_h1")}
       </h1>
       
       {/* <NoticeBanner /> */}

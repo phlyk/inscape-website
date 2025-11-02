@@ -99,7 +99,7 @@ const DJIntroduction: React.FC = () => {
                 >
                   <img
                     src={djPhoto}
-                    alt="philkami - DJ et facilitateur de danse libre et ecstatic dance à Pau"
+                    alt={t("alt_dj_photo")}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -166,7 +166,7 @@ const DJIntroduction: React.FC = () => {
               </motion.div>
 
               <motion.h2
-                className="text-4xl lg:text-5xl font-bold text-white mb-6"
+                className="text-4xl lg:text-5xl font-bold text-white mb-6 section-header"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}

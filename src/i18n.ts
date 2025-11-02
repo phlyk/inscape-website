@@ -19,23 +19,26 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'fr',
     debug: false,
     
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      // Query param for GitHub Pages compatibility, then localStorage, then browser
+      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+      lookupQuerystring: 'lang', // Look for ?lang=en or ?lang=fr
       lookupLocalStorage: 'i18nextLng',
       lookupSessionStorage: 'i18nextLng',
       caches: ['localStorage'],
-      excludeCacheFor: ['cimode'], // languages to not persist (cookie, localStorage)
+      excludeCacheFor: ['cimode'],
+      
       // Convert language codes to our supported languages
       convertDetectedLanguage: (lng: string) => {
         // Handle French variations
         if (lng.startsWith('fr')) return 'fr';
         // Handle English variations  
         if (lng.startsWith('en')) return 'en';
-        // Default fallback
-        return 'en';
+        // Default fallback to French
+        return 'fr';
       }
     },
 

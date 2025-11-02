@@ -84,3 +84,9 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #9333ea, #0074c6);
 }
+
+/* Fix text truncation for section headers */
+.section-header {
+  line-height: 1.15 !important; /* Slightly more space for descenders */
+  padding-bottom: 0.125rem; /* 2px extra bottom padding */
+}
