@@ -2,22 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Preload critical resources only -->
+    <link rel="preload" href="/src/assets/INSCAPE.png" as="image" type="image/png" />
+    <link rel="preload" href="/src/assets/hero-bg.png" as="image" type="image/png" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" /></noscript>
+    
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.billetweb.fr" />
+    
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="apple-touch-icon" href="/I.png" />
+    
+    <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#7c3aed" />
     <meta
       name="description"
       content="InScape Movement - Experience conscious dance and connect with your inner landscape through guided movement meditation."
     />
-    <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <title>InScape Movement - Conscious Dance & Movement Meditation</title>
+    
+    <!-- Inline critical CSS for instant paint -->
+    <style>
+      body { 
+        margin: 0; 
+        background: #000; 
+        font-family: 'Inter', system-ui, sans-serif; 
+        overflow-x: hidden; 
+      }
+      #root { min-height: 100vh; }
+      .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 3px solid #333;
+        border-top: 3px solid #a855f7;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        z-index: 9999;
+      }
+      @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading spinner shown until React hydrates -->
+      <div class="loading-spinner"></div>
+    </div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

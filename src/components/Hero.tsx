@@ -101,18 +101,22 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
       className="relative h-screen overflow-hidden bg-black flex items-center justify-center"
       style={{ paddingTop: '5rem' }}
     >
-      {/* Background Image with Parallax */}
+      {/* Optimized Background with CSS Gradient + Lazy Image */}
       <motion.div
         style={{ y, scale }}
         className="absolute inset-0 z-0"
       >
+        {/* Immediate CSS gradient background for instant paint */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/40 to-black" />
+        
+        {/* Lazy-loaded background image */}
         <div
           className="w-full h-full bg-cover bg-center bg-no-repeat bg-gray-900"
           style={{
             backgroundImage: `url(${heroBg})`,
             filter: 'brightness(1) saturate(1.2)',
             willChange: 'transform',
-            backfaceVisibility: 'hidden', // Prevent flicker
+            backfaceVisibility: 'hidden',
           }}
         />
         {/* Gradient Overlay */}
@@ -137,6 +141,8 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
             className="h-32 md:h-48 lg:h-50 w-auto filter drop-shadow-2xl"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
+            loading="eager"
+            decoding="async"
           />
         </motion.div>
 

@@ -17,7 +17,6 @@ function App() {
     const element = document.getElementById(sectionId);
     if (!element) return;
 
-    // Use requestAnimationFrame to ensure DOM updates are complete
     const performScroll = () => {
       const currentScrollY = window.pageYOffset;
       const elementTop = element.getBoundingClientRect().top + currentScrollY;
@@ -38,7 +37,6 @@ function App() {
       }
     };
 
-    // requestAnimationFrame ensures this runs after any DOM updates (like menu closing)
     requestAnimationFrame(performScroll);
   }, []);
 

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Headphones, Heart, Music } from "lucide-react";
+import { AudioLines, Heart, Speaker } from "lucide-react";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import djPhoto from "../assets/philkami-headshot-colours.png";
@@ -90,7 +90,7 @@ const DJIntroduction: React.FC = () => {
 
                 {/* Main photo */}
                 <motion.div
-                  className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl"
+                  className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl"
                   whileHover={{
                     scale: 1.05,
                     boxShadow: "0 20px 60px rgba(168, 85, 247, 0.3)",
@@ -121,7 +121,7 @@ const DJIntroduction: React.FC = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  <Music size={24} className="text-white" />
+                  <Speaker size={24} className="text-white" />
                 </motion.div>
 
                 <motion.div
@@ -137,7 +137,7 @@ const DJIntroduction: React.FC = () => {
                     delay: 1,
                   }}
                 >
-                  <Headphones size={28} className="text-white" />
+                  <AudioLines size={28} className="text-white" />
                 </motion.div>
               </div>
             </motion.div>
@@ -154,10 +154,15 @@ const DJIntroduction: React.FC = () => {
                 className="mb-6"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
+                whileTap={{ 
+                  scale: 1.2, 
+                  x: -60,
+                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                }}
                 transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
                 viewport={{ once: false }}
               >
-                <Heart size={48} className="text-purple-400 mx-auto lg:mx-0 mb-4" />
+                <Heart size={48} className="text-purple-400 mx-auto lg:mx-0 mb-4 cursor-pointer" />
               </motion.div>
 
               <motion.h2
@@ -204,7 +209,7 @@ const DJIntroduction: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Music size={20} className="mr-2" />
+                  <Speaker size={20} className="mr-2" />
                   {t("explore_mixes")}
                 </motion.a>
 
