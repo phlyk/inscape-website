@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
             >
             <img 
               src={inscapeLogo} 
-              alt="INSCAPE Movement" 
+              alt="INSCAPE Movement - Danse consciente Pau Sud-Ouest" 
               className={`transition-all duration-500 ${
               isScrolled ? 'opacity-100' : 'opacity-0'
               } h-8 lg:h-10`}

@@ -50,6 +50,11 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-black overflow-x-hidden">
+      {/* SEO H1 - Hidden but accessible */}
+      <h1 className="sr-only">
+        {t("hero_title")} - Danse libre et méditation en mouvement à Pau, Sud-Ouest France
+      </h1>
+      
       {/* <NoticeBanner /> */}
       <Header onNavClick={scrollToSection} />
       <Hero onBookNow={handleBookNow} onLearnMore={handleLearnMore} />

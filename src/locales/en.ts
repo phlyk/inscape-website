@@ -76,10 +76,6 @@ export const en = {
   "bring_desc": "Comfortable clothes, water bottle",
   "facilities_desc": "Toilet + running water on site",
   
-  // How to Join section
-  "how_to_join": "How to Join",
-  "contact_method": "Send me a message on WhatsApp to book a spot, either in the group or privately.",
-  
   // DJ Introduction section
   "meet_your": "Meet Your",
   "journey_guide": "Journey Guide",
@@ -89,20 +85,12 @@ export const en = {
   "explore_mixes": "Explore My Mixes",
   "creating_spaces": "Creating safe spaces for authentic movement since 2019",
   
-  // Booking CTA section
-  "ready_to_begin": "Ready to Begin Your Journey?",
-  "join_monthly": "Join us monthly for an authentic movement experience.",
-  "reserve_spot": "Reserve your spot and step into presence, play, and connection.",
-  "book_spot_now": "Book Your Spot Now",
-  "message_whatsapp": "Message on WhatsApp to reserve",
-
-  
   // Booking Widget
   "booking_widget_title": "Book Your Experience",
   "booking_widget_subtitle": "Secure your spot for upcoming INSCAPE Movement sessions",
   "secure_booking_powered": "Secure online booking powered by BilletWeb",
   "open_new_window": "Open in new window",
-  
+
   // Footer
   "footer_copyright": "© 2025 INSCAPE Movement. All rights reserved.",
   "footer_contact": "Book online above or message us on",

@@ -99,7 +99,7 @@ const DJIntroduction: React.FC = () => {
                 >
                   <img
                     src={djPhoto}
-                    alt="philkami - INSCAPE Movement DJ"
+                    alt="philkami - DJ et facilitateur de danse libre et ecstatic dance à Pau"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

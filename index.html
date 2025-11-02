@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!-- Preload critical resources only -->
     <link rel="preload" href="/src/assets/INSCAPE.png" as="image" type="image/png" />
-    <link rel="preload" href="/src/assets/hero-bg.png" as="image" type="image/png" />
+    <link rel="preload" href="/src/assets/hero-bg-min.png" as="image" type="image/png" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" /></noscript>
     
@@ -21,7 +21,57 @@
     <meta name="theme-color" content="#7c3aed" />
     <link rel="manifest" href="/manifest.json" />
     <title>Danse libre & meditation à Pau | INSCAPE Movement</title>
-    <meta name="description" content="Sessions de danse libre et mouvement meditative (eg: ecstatic dance, 5Rythmes) à Pau, dans le Sud-Ouest. Un espace pour se reconnecter à soi, guidé par la musique.">
+    <meta name="description" content="Danse libre et méditation en mouvement à Pau (64). Sessions mensuelles de danse consciente dans le Sud-Ouest. Un espace pour se reconnecter à soi.">
+    
+    <!-- Schema.org Event Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Danse Libre Pau - INSCAPE Movement",
+      "description": "Sessions mensuelles de danse libre et méditation en mouvement. Ecstatic dance et danse consciente à Pau dans un espace sûr et bienveillant.",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "26 Rue Marca",
+          "addressLocality": "Pau",
+          "postalCode": "64000",
+          "addressRegion": "Pyrénées-Atlantiques",
+          "addressCountry": "FR"
+        }
+      },
+      "startDate": "2025-11-15T19:45:00+01:00",
+      "endDate": "2025-11-15T22:30:00+01:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "offers": {
+        "@type": "Offer",
+        "price": "17",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.billetweb.fr/inscape-2"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "INSCAPE Movement",
+        "url": "https://inscape.one",
+        "sameAs": [
+          "https://www.instagram.com/inscapemovement/",
+          "https://www.facebook.com/profile.php?id=61580909900812"
+        ]
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "philkami",
+        "sameAs": [
+          "https://www.instagram.com/philkamisound/",
+          "https://soundcloud.com/philkami"
+        ]
+      },
+      "keywords": "danse libre, ecstatic dance, ecstatic danse, 5rythmes, 5rythms, danse consciente, méditation en mouvement, Pau, Sud-Ouest, 64, Pyrénées-Atlantiques"
+    }
+    </script>
     
     <!-- Inline critical CSS for instant paint -->
     <style>
