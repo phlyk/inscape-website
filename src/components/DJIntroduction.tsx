@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { AudioLines, Heart, Speaker } from "lucide-react";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import djPhoto from "../assets/philkami-headshot-colours.png";
+import djPhoto from "../assets/philkami-headshot-colours-min.png";
 import { SOCIAL_LINKS } from "../config/constants";
 
 const DJIntroduction: React.FC = () => {

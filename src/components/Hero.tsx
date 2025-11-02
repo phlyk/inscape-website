@@ -2,7 +2,7 @@ import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'fram
 import { ChevronDown } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import heroBg from '../assets/hero-bg.png';
+import heroBg from '../assets/hero-bg-min.png';
 import inscapeLogo from '../assets/INSCAPE.png';
 import { SOCIAL_LINKS } from '../config/constants';
 
