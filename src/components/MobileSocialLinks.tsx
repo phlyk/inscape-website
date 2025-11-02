@@ -1,44 +1,10 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { Facebook, Instagram, Music, Share2, X } from 'lucide-react';
-import React, { useState } from 'react';
-import { SOCIAL_LINKS } from '../config/constants';
-import WhatsAppIcon from './WhatsAppIcon';
+import { AnimatePresence, motion } from "framer-motion";
+import { Share2, X } from "lucide-react";
+import React, { useState } from "react";
+import { socialLinks } from "./SocialLinks";
 
 const MobileSocialLinks: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true); // Open by default for better visibility
-
-  const socialLinks = [
-    {
-      icon: Instagram,
-      label: 'INSCAPE Events',
-      url: SOCIAL_LINKS.instagramEvents,
-      color: 'from-pink-500 to-purple-500',
-    },
-    {
-      icon: Instagram,
-      label: 'DJ philkami',
-      url: SOCIAL_LINKS.instagramDJ,
-      color: 'from-purple-500 to-blue-500',
-    },
-    {
-      icon: Facebook,
-      label: 'INSCAPE Movement',
-      url: SOCIAL_LINKS.facebook,
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      icon: Music,
-      label: 'SoundCloud',
-      url: SOCIAL_LINKS.soundcloud,
-      color: 'from-orange-500 to-red-500',
-    },
-    {
-      icon: WhatsAppIcon,
-      label: 'WhatsApp Booking',
-      url: SOCIAL_LINKS.whatsappGroup,
-      color: 'from-green-500 to-green-600',
-    },
-  ];
 
   return (
     <div className="fixed bottom-4 right-4 z-40 lg:hidden">
@@ -46,9 +12,9 @@ const MobileSocialLinks: React.FC = () => {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center ${
-          isOpen 
-            ? 'bg-gradient-to-r from-gray-600 to-gray-700' 
-            : 'bg-gradient-to-r from-purple-500 to-blue-500'
+          isOpen
+            ? "bg-gradient-to-r from-gray-600 to-gray-700"
+            : "bg-gradient-to-r from-purple-500 to-blue-500"
         }`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -98,11 +64,11 @@ const MobileSocialLinks: React.FC = () => {
                 initial={{ scale: 0, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0, y: 20 }}
-                transition={{ 
-                  duration: 0.2, 
+                transition={{
+                  duration: 0.2,
                   delay: index * 0.05,
-                  type: 'spring',
-                  stiffness: 300
+                  type: "spring",
+                  stiffness: 300,
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -113,8 +79,6 @@ const MobileSocialLinks: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Backdrop removed - we have an X button now */}
     </div>
   );
 };

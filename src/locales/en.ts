@@ -31,14 +31,14 @@ export const en = {
   "gentle_guidance": "Gentle Guidance", 
   "gentle_guidance_desc": "There will be gentle invitations to awareness (of body, space, others, silence) or to explore other forms of free dance movement",
 
-  "bilingual": "Bilingual",
-  "bilingual_desc": "Guided in French and English — adapting to what is needed",
-
   "barefoot": "Barefoot Dancing",
   "barefoot_desc": "We dance without shoes (barefoot or dance socks)",
 
-  "closing_circle": "Closing Circle",
-  "closing_circle_desc": "After dancing, there will be a closing circle with time to share and create community connection",
+  "community_focus": "Community Focus",
+  "community_focus_desc": "A place that brings people together, with time to chat and connect after the free dance session",
+
+  "fun_evolving": "Playful & Ever Changing!",
+  "fun_evolving_desc": "This isn't your typical dance class—it's pure freedom to move however feels right. Every session brings new surprises and ways to rediscover the joy of simply being in your body.",
   
   // Musical Journey section  
   "musical_journey": "Musical Journey",
@@ -46,11 +46,10 @@ export const en = {
   "wave_structure_desc": "A DJ set in waves that goes through different phases: Rise, Peak, Transition, Challenge, Landing",
 
   "diversity": "Diversity & Surprise",
-  "diversity_desc": "Strong emphasis on diversity and surprise: ambient, jazz, downtempo, world, electronic, techno, bass music, instrumental hip-hop, sometimes even rock — and much more",
+  "diversity_desc": "Strong emphasis on diversity and surprise: ambient, jazz, downtempo, world, electronic, techno, bass music, instrumental hip-hop, classical, sometimes even rock — and much more",
 
   "responsive": "Live & Responsive",
-  "responsive_desc": "Living and fluid set that adjusts to the energy of the room",
-  "discovery_desc": "Most tracks will be unknown to you — discovery is intentional",
+  "responsive_desc": "Living and fluid set that adjusts to the energy of the room\nMost tracks will be unknown to you — discovery is intentional",
 
   "sound_system": "Professional Sound",
   "sound_system_desc": "High-quality professional sound system",
@@ -59,15 +58,15 @@ export const en = {
   // Practical Details section
   "practical_details": "Practical Details",
   "location": "Location",
-  "location_desc": "26 Rue Marca, Pau",
+  "location_desc": "26 Rue Marca, Pau\n160m² dance studio in the heart of the city",
 
   "arrival": "Arrival", 
-  "arrival_desc": "7:45 PM — please arrive before 8:00 PM. Late entry allowed until 8:15 PM.",
-  "movement_time_desc": "8:00 PM → 10:00 PM (open space for socializing until ~10:30 PM)",
+  "arrival_desc": "Doors open 7:45 PM\nSession 8:00 PM → 10:00 PM. Please arrive before 8:00 PM.\nOpen space for discussion until ~10:30 PM",
   "age_desc": "Adults only 18+",
 
   "contribution": "Contribution",
   "contribution_desc": "20€ standard fee, booked online (or 17€ if you bring a friend!)",
+  "loyalty_discount": "Loyalty discounts coming soon",
 
   "parking": "Parking",
   "parking_desc": "~3 mins walk from Place Verdun Sud; free on Saturday evenings + generally spots available",
@@ -87,7 +86,7 @@ export const en = {
   
   // Booking Widget
   "booking_widget_title": "Book Your Experience",
-  "booking_widget_subtitle": "Secure your spot for upcoming INSCAPE Movement sessions in Pau",
+  "booking_widget_subtitle": "Secure your spot for upcoming Inscape Movement sessions in Pau",
   "secure_booking_powered": "Secure online booking powered by BilletWeb",
   "open_new_window": "Open in new window",
 

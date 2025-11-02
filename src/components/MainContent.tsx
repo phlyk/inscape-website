@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Clock, Euro, Heart, MapPin, Music, Shield, Users } from "lucide-react";
+import { Backpack, Clock, Euro, Footprints, MapPin, MicVocal, Music, Shield, Sparkles, Users } from "lucide-react";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { SOCIAL_LINKS } from "../config/constants";
@@ -125,19 +125,19 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
               </button>
             </FeatureCard>
             <FeatureCard
-              icon={Heart}
+              icon={MicVocal}
               title={t("gentle_guidance")}
               description={t("gentle_guidance_desc")}
               delay={0.2}
             />
-            <FeatureCard icon={Users} title={t("bilingual")} description={t("bilingual_desc")} delay={0.3} />
-            <FeatureCard icon={Heart} title={t("barefoot")} description={t("barefoot_desc")} delay={0.4} />
+            <FeatureCard icon={Footprints} title={t("barefoot")} description={t("barefoot_desc")} delay={0.3} />
             <FeatureCard
               icon={Users}
-              title={t("closing_circle")}
-              description={t("closing_circle_desc")}
-              delay={0.5}
+              title={t("community_focus")}
+              description={t("community_focus_desc")}
+              delay={0.4}
             />
+            <FeatureCard icon={Sparkles} title={t("fun_evolving")} description={t("fun_evolving_desc")} delay={0.5} />
           </div>
         </div>
       </Section>
@@ -176,8 +176,8 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
 
                 <SpotlightCard className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <h3 className="text-2xl font-semibold mb-4 text-pink-300">{t("responsive")}</h3>
-                  <p className="text-white/90 leading-relaxed">
-                    {t("responsive_desc")} {t("discovery_desc")}
+                  <p className="text-white/90 leading-relaxed whitespace-pre-line">
+                    {t("responsive_desc")}
                   </p>
                 </SpotlightCard>
               </motion.div>
@@ -235,8 +235,7 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
             >
               <MapPin size={32} className="text-blue-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">{t("location")}</h3>
-              <p className="text-white/90">{t("location_desc")}</p>
-              <p className="text-sm text-white/70 mt-2">{t("parking_desc")}</p>
+              <p className="text-white/90 whitespace-pre-line">{t("location_desc")}</p>
             </SpotlightCard>
 
             <SpotlightCard
@@ -249,8 +248,7 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
             >
               <Clock size={32} className="text-purple-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">{t("arrival")}</h3>
-              <p className="text-white/90">{t("arrival_desc")}</p>
-              <p className="text-white/90">{t("movement_time_desc")}</p>
+              <p className="text-white/90 whitespace-pre-line">{t("arrival_desc")}</p>
               <p className="text-sm text-white/70 mt-2">{t("age_desc")}</p>
             </SpotlightCard>
 
@@ -265,7 +263,7 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
               <Euro size={32} className="text-green-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">{t("contribution")}</h3>
               <p className="text-white/90">{t("contribution_desc")}</p>
-              <p className="text-sm text-white/70 mt-2"></p>
+              <p className="text-sm text-white/70 mt-2">{t("loyalty_discount")}</p>
             </SpotlightCard>
 
             <SpotlightCard
@@ -290,7 +288,7 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
               viewport={{ once: false }}
               whileHover={{ y: -5 }}
             >
-              <Heart size={32} className="text-red-400 mx-auto mb-4" />
+              <Backpack size={32} className="text-red-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">{t("bring")}</h3>
               <p className="text-white/90">{t("bring_desc")}</p>
               <p className="text-sm text-white/70 mt-2">{t("facilities_desc")}</p>

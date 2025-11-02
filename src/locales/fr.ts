@@ -31,14 +31,14 @@ export const fr = {
   "gentle_guidance": "Propositions Douces", 
   "gentle_guidance_desc": "Il y aura des propositions douces pour inviter à la conscience (du corps, de l'espace, des autres, du silence) ou pour explorer d'autres formes de mouvement",
   
-  "bilingual": "Bilingue",
-  "bilingual_desc": "Guidé en français et en anglais — s'adaptant à ce qui est nécessaire",
-
   "barefoot": "Pieds Nus",
   "barefoot_desc": "Nous pratiquons la danse libre sans chaussures (pieds nus ou chaussettes de danse)",
 
-  "closing_circle": "Cercle de Clôture",
-  "closing_circle_desc": "Après la séance, il y aura un cercle de clôture avec du temps pour partager et créer du lien communautaire",
+  "community_focus": "Focus Communautaire",
+  "community_focus_desc": "Un lieu qui rassemble les gens, avec du temps pour échanger et créer des liens après la session de danse libre",
+
+  "fun_evolving": "Ludique & Toujours Différent",
+  "fun_evolving_desc": "Ce n'est pas un cours de danse - c'est la liberté pure de bouger comme tu le sens (ou pas du tout!). Chaque session apporte de nouvelles surprises et des façons de redécouvrir la joie d'être simplement dans ton corps.",
   
   // Musical Journey section  
   "musical_journey": "Voyage Musical",
@@ -46,11 +46,10 @@ export const fr = {
   "wave_structure_desc": "Un DJ set en vagues qui traverse différentes phases: Montée, Pic, Transition, Défi, Atterrissage",
 
   "diversity": "Diversité & Surprise",
-  "diversity_desc": "Fort accent sur la diversité et la surprise : ambient, jazz, downtempo, world, électronique, techno, bass music, hip-hop instrumental, même parfois du rock — et bien plus encore",
+  "diversity_desc": "Fort accent sur la diversité et la surprise : ambient, jazz, downtempo, world, électronique, techno, bass music, hip-hop instrumental, classique, même parfois du rock — et bien plus encore",
 
   "responsive": "Vivant & Fluide",
-  "responsive_desc": "Set vivant et fluide qui s'ajuste à l'énergie de la salle",
-  "discovery_desc": "La plupart des morceaux vous seront inconnus — la découverte est intentionnelle",
+  "responsive_desc": "Set vivant et fluide qui s'ajuste à l'énergie de la salle\nLa plupart des morceaux vous seront inconnus — la découverte est intentionnelle",
 
   "sound_system": "Son Professionnel",
   "sound_system_desc": "Système de son professionnel de haute qualité",
@@ -59,15 +58,15 @@ export const fr = {
   // Practical Details section
   "practical_details": "Infos pratiques",
   "location": "Lieu",
-  "location_desc": "26 Rue Marca, Pau",
+  "location_desc": "26 Rue Marca, Pau\n160m² de studio de danse entouré de verdure",
 
   "arrival": "Accueil", 
-  "arrival_desc": "19h45 — merci d'arriver avant 20h00. Entrée tardive autorisée jusqu'à 20h15.",
-  "movement_time_desc": "20h00 → 22h00 (espace ouvert pour socialiser jusqu'à ~22h30)",
+  "arrival_desc": "Ouverture des portes 19h45\nSession 20h00 → 22h00. Merci d'arriver avant 20h00.\nEspace ouvert pour échanger jusqu'à ~22h30",
   "age_desc": "Adultes uniquement 18+",
 
   "contribution": "Contribution",
   "contribution_desc": "20€ tarif standard, réservé en ligne (ou 17€ si tu amènes un·e ami·e !)",
+  "loyalty_discount": "Réductions fidélité à venir",
 
   "parking": "Parking",
   "parking_desc": "~3 mins à pied de la Place Verdun Sud ; gratuit les samedis soirs + généralement des places disponibles",
@@ -79,7 +78,7 @@ export const fr = {
   // DJ Introduction section
   "meet_your": "Rencontrez Votre",
   "journey_guide": "Guide de Voyage",
-  "dj_intro_1": "Je suis philkami, le DJ et facilitateur derrière INSCAPE Movement.",
+  "dj_intro_1": "Je suis philkami, le DJ et facilitateur derrière Inscape Movement.",
   "dj_intro_2": "Avec des années d'expérience dans la création de paysages sonores transformateurs, je vous guide à travers un voyage musical soigneusement conçu qui invite à l'expression authentique et à la connexion profonde.",
   "dj_intro_3": "Chaque session est une expérience vivante et respirante — adaptative, intuitive, et toujours au service de l'énergie collective dans la salle.",
   "explore_mixes": "Découvrez Mes Mix",
@@ -87,7 +86,7 @@ export const fr = {
 
   // Booking Widget
   "booking_widget_title": "Réservez Votre Expérience",
-  "booking_widget_subtitle": "Réservez votre place pour les prochaines sessions INSCAPE Movement de danse libre à Pau",
+  "booking_widget_subtitle": "Réservez votre place pour les prochaines sessions Inscape Movement de danse libre à Pau",
   "secure_booking_powered": "Réservation sécurisée propulsée par BilletWeb",
   "open_new_window": "Ouvrir dans une nouvelle fenêtre",
   

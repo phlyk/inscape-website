@@ -1,43 +1,42 @@
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Music } from 'lucide-react';
-import React from 'react';
-import { SOCIAL_LINKS } from '../config/constants';
-import WhatsAppIcon from './WhatsAppIcon';
+import { motion } from "framer-motion";
+import { Facebook, Instagram, Music } from "lucide-react";
+import React from "react";
+import { SOCIAL_LINKS } from "../config/constants";
+import WhatsAppIcon from "./WhatsAppIcon";
 
+export const socialLinks = [
+  {
+    icon: Instagram,
+    label: "@inscapemovement",
+    url: SOCIAL_LINKS.instagramEvents,
+    color: "from-pink-500 to-purple-500",
+  },
+  {
+    icon: Instagram,
+    label: "DJ philkami",
+    url: SOCIAL_LINKS.instagramDJ,
+    color: "from-purple-500 to-blue-500",
+  },
+  {
+    icon: Facebook,
+    label: "Inscape Movement",
+    url: SOCIAL_LINKS.facebook,
+    color: "from-blue-500 to-blue-600",
+  },
+  {
+    icon: Music,
+    label: "SoundCloud",
+    url: SOCIAL_LINKS.soundcloud,
+    color: "from-orange-500 to-red-500",
+  },
+  {
+    icon: WhatsAppIcon,
+    label: "WhatsApp Group",
+    url: SOCIAL_LINKS.whatsappGroup,
+    color: "from-green-500 to-green-600",
+  },
+];
 const SocialLinks: React.FC = () => {
-  const socialLinks = [
-    {
-      icon: Instagram,
-      label: 'INSCAPE Events',
-      url: SOCIAL_LINKS.instagramEvents,
-      color: 'from-pink-500 to-purple-500',
-    },
-    {
-      icon: Instagram,
-      label: 'DJ philkami',
-      url: SOCIAL_LINKS.instagramDJ,
-      color: 'from-purple-500 to-blue-500',
-    },
-    {
-      icon: Facebook,
-      label: 'Inscape Movement',
-      url: SOCIAL_LINKS.facebook,
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      icon: Music,
-      label: 'SoundCloud',
-      url: SOCIAL_LINKS.soundcloud,
-      color: 'from-orange-500 to-red-500',
-    },
-    {
-      icon: WhatsAppIcon,
-      label: 'WhatsApp Group',
-      url: SOCIAL_LINKS.whatsappGroup,
-      color: 'from-green-500 to-green-600',
-    },
-  ];
-
   return (
     <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
       <motion.div
@@ -60,7 +59,7 @@ const SocialLinks: React.FC = () => {
             transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
           >
             <link.icon size={20} className="text-white" />
-            
+
             {/* Tooltip */}
             <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               <div className="bg-black/90 text-white px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap backdrop-blur-sm">

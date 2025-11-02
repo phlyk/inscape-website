@@ -27,26 +27,6 @@ const DJIntroduction: React.FC = () => {
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div className="max-w-6xl mx-auto" style={{ opacity }}>
-          {/* Section Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
-          >
-            <motion.h2
-              className="text-3xl lg:text-4xl font-bold text-white mb-4"
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false }}
-            >
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                {t("meet_your")} {t("journey_guide")}
-              </span>
-            </motion.h2>
-          </motion.div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Photo Side */}
             <motion.div

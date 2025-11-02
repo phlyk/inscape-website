@@ -25,7 +25,6 @@ const SEOSchema: React.FC = () => {
         : "Sessions mensuelles de danse libre et méditation en mouvement. Ecstatic dance et danse consciente à Pau dans un espace sûr et bienveillant.",
       "location": {
         "@type": "Place",
-        "name": "INSCAPE Movement Studio",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "26 Rue Marca",
