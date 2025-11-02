@@ -10,7 +10,7 @@ const MobileSocialLinks: React.FC = () => {
   const socialLinks = [
     {
       icon: Instagram,
-      label: 'InScape Events',
+      label: 'INSCAPE Events',
       url: SOCIAL_LINKS.instagramEvents,
       color: 'from-pink-500 to-purple-500',
     },
@@ -22,7 +22,7 @@ const MobileSocialLinks: React.FC = () => {
     },
     {
       icon: Facebook,
-      label: 'InScape Movement',
+      label: 'INSCAPE Movement',
       url: SOCIAL_LINKS.facebook,
       color: 'from-blue-500 to-blue-600',
     },

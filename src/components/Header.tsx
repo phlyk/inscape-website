@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
             >
             <img 
               src={inscapeLogo} 
-              alt="InScape Movement" 
+              alt="INSCAPE Movement" 
               className={`transition-all duration-500 ${
               isScrolled ? 'opacity-100' : 'opacity-0'
               } h-8 lg:h-10`}

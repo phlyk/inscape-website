@@ -6,7 +6,7 @@ export const fr = {
   "chat_with_us": "Discutez Avec Nous",
   "join_community": "Rejoindre la Communauté",
   "discover_journey": "Découvrez le Voyage",
-  "what_to_expect": "À Quoi S'Attendre",
+  "what_to_expect": "C'est quoi Inscape?",
   "about": "À Propos",
   "music_journey_nav": "Voyage Musical",
   "practical_details_nav": "Infos Pratiques",
@@ -15,12 +15,12 @@ export const fr = {
   "notice_banner": "Pas de session le 11 octobre - Prochaine session le 15 novembre",
   
   // Hero section  
-  "hero_title": "InScape Movement",
+  "hero_title": "INSCAPE Movement",
   "hero_subtitle": "Danse Consciente & Méditation en Mouvement",
   "hero_description": "Expérimente la danse consciente et connecte-toi à ton paysage intérieur à travers la méditation en mouvement guidée.",
   
-  // What is InScape section
-  "what_is_inscape": "C'est quoi InScape Movement?",
+  // What is INSCAPE section
+  "what_is_inscape": "C'est quoi Inscape Movement?",
   "what_is_description": "C'est simple : tu entres dans la salle, la musique s'élève, et tout le reste disparaît.\nDeux heures pour bouger comme tu veux, sans jugement, sans distractions.\nLes gens, seuls et ensemble, se laissent guider par la musique et découvrent ce que le moment apporte.\nPas de paroles, pas de téléphones, pas de substances — seulement la présence, le jeu, et la connexion.",
   
   // Key Features section
@@ -90,21 +90,21 @@ export const fr = {
   // DJ Introduction section
   "meet_your": "Rencontrez Votre",
   "journey_guide": "Guide de Voyage",
-  "dj_intro_1": "Je suis philkami, le DJ et facilitateur derrière InScape Movement.",
+  "dj_intro_1": "Je suis philkami, le DJ et facilitateur derrière INSCAPE Movement.",
   "dj_intro_2": "Avec des années d'expérience dans la création de paysages sonores transformateurs, je vous guide à travers un voyage musical soigneusement conçu qui invite à l'expression authentique et à la connexion profonde.",
   "dj_intro_3": "Chaque session est une expérience vivante et respirante — adaptative, intuitive, et toujours au service de l'énergie collective dans la salle.",
   "explore_mixes": "Découvrez Mes Mix",
   "creating_spaces": "Créer des espaces sûrs pour le mouvement authentique depuis 2023",
   
   // Footer
-  "footer_copyright": "© 2025 InScape Movement. Tous droits réservés.",
+  "footer_copyright": "© 2025 INSCAPE Movement. Tous droits réservés.",
   "footer_contact": "Réservez en ligne ci-dessus ou contactez-nous sur",
   "footer_whatsapp": "WhatsApp",
   "footer_contact_end": "pour toute question.",
   
   // Booking Widget
   "booking_widget_title": "Réservez Votre Expérience",
-  "booking_widget_subtitle": "Réservez votre place pour les prochaines sessions InScape Movement",
+  "booking_widget_subtitle": "Réservez votre place pour les prochaines sessions INSCAPE Movement",
   "secure_booking_powered": "Réservation sécurisée propulsée par BilletWeb",
   "open_new_window": "Ouvrir dans une nouvelle fenêtre",
 };

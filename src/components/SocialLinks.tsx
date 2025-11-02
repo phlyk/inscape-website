@@ -8,7 +8,7 @@ const SocialLinks: React.FC = () => {
   const socialLinks = [
     {
       icon: Instagram,
-      label: 'InScape Events',
+      label: 'INSCAPE Events',
       url: SOCIAL_LINKS.instagramEvents,
       color: 'from-pink-500 to-purple-500',
     },

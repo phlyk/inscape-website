@@ -137,7 +137,7 @@ const Hero: React.FC<HeroProps> = ({ onBookNow, onLearnMore }) => {
         >
           <motion.img 
             src={inscapeLogo} 
-            alt="InScape Movement" 
+            alt="INSCAPE Movement" 
             className="h-32 md:h-48 lg:h-50 w-auto filter drop-shadow-2xl"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}

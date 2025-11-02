@@ -70,7 +70,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = '' }) => {
                 height="600"
                 frameBorder="0"
                 scrolling="auto"
-                title="InScape Movement Event Booking"
+                title="INSCAPE Movement Event Booking"
                 className="w-full h-full bg-white rounded-xl shadow-xl relative z-10"
                 loading="lazy"
                 allow="payment; geolocation"
