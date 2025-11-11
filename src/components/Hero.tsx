@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import heroBg from '../assets/hero-bg-min.png';
-import inscapeLogo from '../assets/INSCAPE.png';
+import inscapeLogo from '../assets/Inscape.png';
 import { SOCIAL_LINKS } from '../config/constants';
 
 // Separate component for cursor-following particles to avoid hooks in callback

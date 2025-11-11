@@ -12,11 +12,11 @@ export const en = {
   // "notice_banner": "No session on 11th October - Next session November 15th",
   
   // Hero section
-  "hero_title": "INSCAPE Movement",
+  "hero_title": "Inscape Movement",
   "hero_subtitle": "Free Dance & Movement Meditation",
   "hero_description": "Experience free dance and connect with your inner landscape through guided movement meditation in Southwest France.",
   
-  // What is INSCAPE section
+  // What is Inscape section
   "what_is_inscape": "What is Inscape Movement?",
   "what_is_description": "It's simple: you enter the room, the music rises, and everything else fades away.\nTwo hours to move however you want, without judgment, without distractions.\nPeople, alone and together, let themselves be guided by the music and discover what the moment brings.\nNo words, no phones, no substances — just presence, play, and connection.",
   
@@ -78,8 +78,8 @@ export const en = {
   // DJ Introduction section
   "meet_your": "Meet Your",
   "journey_guide": "Journey Guide",
-  "dj_intro_1": "I'm philkami, the DJ and facilitator behind INSCAPE Movement.",
-  "dj_intro_2": "With years of experience curating transformative soundscapes, I guide you through a carefully crafted musical journey that invites authentic expression and deep connection.",
+  "dj_intro_1": "I'm philkami, the DJ and facilitator behind Inscape Movement.",
+  "dj_intro_2": "With years of experience curating transformative soundscapes (ecstatic dance and others), I guide you through a carefully crafted musical journey that invites authentic expression and deep connection.",
   "dj_intro_3": "Every session is a living, breathing experience — adaptive, intuitive, and always in service of the collective energy in the room.",
   "explore_mixes": "Explore My Mixes",
   "creating_spaces": "Creating safe spaces for authentic free dance since 2019",
@@ -91,14 +91,14 @@ export const en = {
   "open_new_window": "Open in new window",
 
   // Footer
-  "footer_copyright": "© 2025 INSCAPE Movement. All rights reserved.",
+  "footer_copyright": "© 2025 Inscape Movement. All rights reserved.",
   "footer_contact": "Book online above or message us on",
   "footer_whatsapp": "WhatsApp",
   "footer_contact_end": "for inquiries.",
 
   // SEO & Alt Text
   "seo_h1": "Free dance and movement meditation in Pau, Southwest France",
-  "alt_hero_logo": "INSCAPE Movement - Free dance and movement meditation in Pau",
-  "alt_header_logo": "INSCAPE Movement - Conscious dance Pau Southwest",
+  "alt_hero_logo": "Inscape Movement - Free dance and movement meditation in Pau",
+  "alt_header_logo": "Inscape Movement - Conscious dance Pau Southwest",
   "alt_dj_photo": "philkami - DJ and facilitator of free dance and ecstatic dance in Pau",
 };

@@ -64,7 +64,7 @@ const MainContent: React.FC<MainContentProps> = ({ onScrollToSection }) => {
 
   return (
     <div className="bg-black text-white">
-      {/* What is INSCAPE Movement */}
+      {/* What is Inscape Movement */}
       <Section id="what-to-expect" className="bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">

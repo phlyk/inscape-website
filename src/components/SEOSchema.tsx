@@ -18,8 +18,8 @@ const SEOSchema: React.FC = () => {
       "@context": "https://schema.org",
       "@type": "Event",
       "name": isEnglish 
-        ? "Free Dance Pau - INSCAPE Movement" 
-        : "Danse Libre Pau - INSCAPE Movement",
+        ? "Free Dance Pau - Inscape Movement" 
+        : "Danse Libre Pau - Inscape Movement",
       "description": isEnglish
         ? "Monthly sessions of free dance and movement meditation. Ecstatic dance and conscious dance in Pau in a safe and welcoming space."
         : "Sessions mensuelles de danse libre et méditation en mouvement. Ecstatic dance et danse consciente à Pau dans un espace sûr et bienveillant.",
@@ -47,7 +47,7 @@ const SEOSchema: React.FC = () => {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "INSCAPE Movement",
+        "name": "Inscape Movement",
         "url": "https://inscape.one",
         "sameAs": [
           "https://www.instagram.com/inscapemovement/",

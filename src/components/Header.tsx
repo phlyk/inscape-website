@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import inscapeLogo from '../assets/INSCAPE.png';
+import inscapeLogo from '../assets/Inscape.png';
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface HeaderProps {
